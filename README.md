@@ -12,6 +12,39 @@ It ships three ways from one source: as a **Claude Code plugin** (install by com
 as AgentSpec and the Microsoft Agent Control Specification rather than replacing them: those gate the
 action, this gates the epistemics of the verification.
 
+## Why this exists
+
+**The problem.** Agentic loops increasingly close on their own self-critique: the model writes an
+answer, the same model reviews it, and the loop ships. That is the cheapest verification mode and the
+most common in autonomous and self-refine designs, and it is unsound on exactly the decisions that
+matter. A peer-reviewed result shows intrinsic self-correction is unreliable and can degrade accuracy
+on hard-correctness tasks (Huang et al., ICLR 2024, arXiv:2310.01798), and a self-improving loop has
+been shown to game its own critic (Denison et al., arXiv:2406.10162). The action-level guardrails that
+shipped recently check whether an action is allowed; none checks whether the judgment that approved it
+may stand on its own.
+
+**What it saves you.**
+- *Avoided high-cost errors (the main value):* a wrong high-materiality decision a self-critic waved
+  through is expensive in the real world (a mispriced premium, a wrong reserve, a wrongly rejected
+  claim, a bad merge to production). The contract forces an independent check before such a decision
+  stands; the check is cheap relative to the loss.
+- *Reduced token waste on futile self-refinement:* refinement loops are a large share of agentic token
+  spend (the review stage alone was 59.4 percent of tokens in one study, Salim et al., arXiv:2601.14470)
+  and accuracy plateaus where extra passes stop helping (Wu et al., arXiv:2408.00724). On a
+  hard-correctness task, more self-refine passes will not close the gap, so the guard stops them early
+  and routes to an independent check instead of paying for self-critique that cannot help. The saving is
+  the futile passes you stop running, not a blanket promise of fewer tokens.
+- *A clean audit trail:* the verdict is a deterministic function of tagged inputs, so it replays and is
+  explainable.
+
+**Where it applies.** Finance and model risk, insurance, healthcare, legal and compliance, autonomous
+software-engineering agents, and enterprise operations and support: anywhere a loop makes a decision
+that is both checkable and costly to get wrong. Per-industry scenarios with verdicts are in
+[`skills/verification-adequacy/reference/USE-CASES.md`](skills/verification-adequacy/reference/USE-CASES.md).
+A runnable walkthrough is
+[`skills/verification-adequacy/examples/quickstart.py`](skills/verification-adequacy/examples/quickstart.py)
+(`python quickstart.py`).
+
 ## Install
 
 ### A. Claude Code plugin (one command)
@@ -73,8 +106,10 @@ verification-adequacy/                         repo root = plugin root = marketp
   .claude-plugin/plugin.json                   plugin manifest
   skills/verification-adequacy/SKILL.md        the skill (auto-discovered by Claude Code)
   skills/verification-adequacy/reference/CONTRACT.md   full spec and limits
+  skills/verification-adequacy/reference/USE-CASES.md  per-industry scenarios with verdicts
   skills/verification-adequacy/scripts/adequacy_gate.py        the deterministic guard
   skills/verification-adequacy/scripts/test_adequacy_gate.py   the test suite
+  skills/verification-adequacy/examples/quickstart.py          runnable self-refine-loop walkthrough
   install.sh                                   skill-folder installer
   pyproject.toml                               pip packaging for the guard
   AGENTS.md                                    cross-agent instructions (Codex, Cursor, etc.)

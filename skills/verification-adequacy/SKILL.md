@@ -6,23 +6,71 @@ description: >
   may not be the sole gate on a hard-correctness, high-materiality decision; the loop must add an
   independent check (cross-model, held-out, tool, or human) or escalate. Triggers on agent loop
   design, self-refine or reflection loops, autonomous or self-improving agents, AI governance,
-  human-in-the-loop decisions, and "should this loop be allowed to check its own work" questions.
+  human-in-the-loop decisions, model risk, and "should this loop be allowed to check its own work".
 ---
 
 # Verification Adequacy
 
-## What this is
+## The problem it solves
 
-A small, portable governance contract for agentic AI loops. It does one thing the action-level
-guardrails (AgentSpec, Microsoft Agent Control Specification, and similar) do not: it asks whether a
-loop's *verification structure* is valid for the decision it is about to make, rather than whether the
-*action* is allowed.
+Agentic loops increasingly close on their own self-critique. A model writes an answer, the same
+model reviews it, declares it good, and the loop ships the result. This is the cheapest verification
+mode to build and the most common one in autonomous and self-refine designs. It is also unsound on
+exactly the decisions where it matters most.
 
-The one rule, in plain terms: do not let a model be its own only judge when being wrong is both
-costly and has a checkable right answer. This is grounded in a peer-reviewed negative result that
-intrinsic self-correction is unreliable on hard-correctness tasks (Huang et al., ICLR 2024,
-arXiv:2310.01798) and evidence that a self-improving loop can game its own critic (Denison et al.,
-arXiv:2406.10162).
+Two failure modes drive this:
+
+1. **Self-correction does not reliably work on hard-correctness tasks.** A peer-reviewed result shows
+   intrinsic self-correction is unreliable and can *degrade* accuracy when there is no external signal
+   (Huang et al., ICLR 2024, arXiv:2310.01798). A model that produced a wrong answer tends to share
+   the blind spot that produced it.
+2. **A self-improving loop can game its own critic.** When the actor and the critic are the same
+   system, the loop can learn to satisfy the critic without satisfying the goal (Denison et al.,
+   arXiv:2406.10162; sycophancy in Sharma et al., arXiv:2310.13548).
+
+The action-level guardrails that shipped in the last year (AgentSpec, the Microsoft Agent Control
+Specification, and similar) check whether an *action* is allowed. None of them checks whether the
+*judgment* that approved the action is allowed to stand on its own. That is the gap this skill fills.
+
+## What it saves you
+
+- **Avoided high-cost errors (the main value).** On a hard-correctness, high-materiality decision, a
+  wrong answer that a self-critic waved through is expensive in the real world: a mispriced premium, a
+  wrong reserve, a wrongly rejected claim, a bad code merge to production, a flawed compliance
+  determination. The contract forces a second, independent set of eyes (model, tool, or human) before
+  such a decision stands. The check is cheap relative to the loss it prevents.
+- **Reduced token and cost waste on futile self-refinement.** Refinement loops are a major share of
+  agentic token spend (the iterative review stage alone consumed 59.4 percent of tokens in one study
+  of agentic software engineering, Salim et al., arXiv:2601.14470), and inference-scaling work shows
+  accuracy plateaus where extra passes stop buying anything (Wu et al., arXiv:2408.00724). On a
+  hard-correctness task the literature says self-critique will not reliably close the gap, so repeated
+  self-refine passes burn tokens without improving the answer. This skill flags that pattern early and
+  routes to an independent check or escalation instead of paying for more self-critique that cannot
+  help. The saving is the self-refine iterations you stop running, not a guarantee of fewer tokens
+  overall.
+- **A clean audit trail.** The verdict is a deterministic function of tagged inputs, so every gate
+  decision replays and is explainable, which is what an auditor or a risk function asks for.
+
+The honest counter-case: where a decision is genuinely soft (open-ended drafting, brainstorming,
+subjective quality) and low-materiality, self-critique is fine and the contract leaves it alone. The
+value is concentrated on the hard-and-costly fraction, and the skill is built so the cheap-and-soft
+work is not slowed down.
+
+## Where it applies (industries)
+
+Anywhere agentic loops make decisions that are both checkable and costly to get wrong:
+
+- **Finance and model risk:** credit decisions, reserving, VaR and pricing model outputs, forecast
+  sign-off. (Worked end-state in `reference/CONTRACT.md`.)
+- **Insurance:** claims adjudication, underwriting, reserve adequacy.
+- **Healthcare:** clinical decision support, triage, coding and prior-authorization.
+- **Legal and compliance:** contract review, regulatory determinations, policy checks.
+- **Software engineering:** autonomous code-generation and PR agents merging to production.
+- **Enterprise operations and support:** autonomous workflow agents and consequential ticket
+  resolution that take real-world actions.
+
+Concrete per-industry scenarios, each showing the decision, the verification mode, the classification,
+and the verdict, are in `reference/USE-CASES.md`.
 
 ## When to apply it
 
@@ -33,22 +81,17 @@ help.
 
 ## The contract
 
-1. **Tag the verification mode.** Identify what closes the loop: `self` (the model critiques itself),
-   `peer` (other agents), `tool` (a test suite, retriever, or environment oracle), or `human`.
-2. **Classify the decision** on two axes: task type (`soft` open-ended generation versus
-   `hard_correctness` a checkable, costly-to-get-wrong answer) and materiality (`low`
-   reversible-and-cheap versus `high` costly-and-hard-to-reverse). When you cannot confidently
-   classify, default to `hard_correctness` and `high`. The safe move is to demand more verification,
-   never to wave a decision through.
-3. **Enforce the rule.** If the mode is `self` and the decision is `hard_correctness` and `high`, the
-   loop must have an independent check or it does not pass. Return one of: `ALLOW` (an independent
-   check is present), `REQUIRE_INDEPENDENT_CHECK` (add a cross-model, held-out, tool, or human check),
-   or `ESCALATE` (no independent check is available; route to a human).
+1. **Tag the verification mode:** `self`, `peer`, `tool`, or `human` (what closes the loop).
+2. **Classify the decision:** task type `soft` versus `hard_correctness`; materiality `low` versus
+   `high`. When you cannot confidently classify, default to `hard_correctness` and `high`. The safe
+   move is to demand more verification, never to wave a decision through.
+3. **Enforce the rule:** if the mode is `self` and the decision is `hard_correctness` and `high`, the
+   loop must have an independent check or it does not pass. Return `ALLOW`, `REQUIRE_INDEPENDENT_CHECK`,
+   or `ESCALATE`.
 
 ## How to use the bundled guard
 
-`scripts/adequacy_gate.py` is a dependency-free reference implementation. Import it and call
-`adequacy_gate(decision)` on each consequential loop decision:
+`scripts/adequacy_gate.py` is a dependency-free reference implementation:
 
 ```python
 from adequacy_gate import Decision, adequacy_gate, VerificationMode, TaskType, Materiality
@@ -62,17 +105,17 @@ verdict = adequacy_gate(Decision(
 # verdict == "REQUIRE_INDEPENDENT_CHECK"
 ```
 
-Run `python scripts/test_adequacy_gate.py` to confirm the guard behaves as specified.
+Run `python scripts/test_adequacy_gate.py` for the test suite, and
+`python examples/quickstart.py` for a worked self-refine-loop walkthrough.
 
 ## What this is not
 
 It does not gate actions (use an action-policy layer for that), it does not prove a loop correct, and
 it does not produce a confidence number. It is a thin, auditable contract that refuses one specific
-unsafe pattern. The full reasoning, the failure-mode survey behind it, and the limits are in
-`reference/CONTRACT.md`.
+unsafe pattern, and it composes with action-policy layers rather than replacing them.
 
 ## Honest limits
 
 The soft-versus-hard classification is a judgment call, closed by the conservative default above. The
-contract is a specification with a reference guard, not an empirically validated mechanism. See the
-limits section of `reference/CONTRACT.md`.
+contract is a specification with a reference guard, not an empirically validated mechanism. Full
+reasoning, the failure-mode survey, and the limits are in `reference/CONTRACT.md`.
