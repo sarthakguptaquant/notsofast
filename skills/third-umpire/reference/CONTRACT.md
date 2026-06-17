@@ -1,4 +1,4 @@
-# The Verification Adequacy Contract
+# The Third Umpire Contract
 
 This is the full specification behind the skill. It is condensed from a three-day failure-mode survey
 of agentic AI loops. The companion paper carries the citations and the does-it-already-exist analysis.
@@ -40,7 +40,7 @@ peer-reviewed backing, and a thin enforced contract is more adoptable than a bro
 ## The guard
 
 ```
-function adequacy_gate(decision):
+function review(decision):
     mode        = verification_mode(decision)            # self | peer | tool | human
     task, matl  = classify(decision)                     # unknown -> hard_correctness / high
     if mode == self and task == hard_correctness and matl == high:
@@ -50,7 +50,7 @@ function adequacy_gate(decision):
     return ALLOW
 ```
 
-The reference implementation in `scripts/adequacy_gate.py` carries no model in its routing path, so
+The reference implementation in `scripts/third_umpire.py` carries no model in its routing path, so
 it replays deterministically and is auditable.
 
 ## Why this is not the action-firewall

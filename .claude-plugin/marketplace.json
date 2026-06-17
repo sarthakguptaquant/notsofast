@@ -8,16 +8,16 @@
   "version": "0.1.0",
   "plugins": [
     {
-      "name": "verification-adequacy",
-      "displayName": "Verification Adequacy",
+      "name": "third-umpire",
+      "displayName": "Third Umpire",
       "source": "./",
       "description": "Enforce that a self-only critic is not the sole gate on a hard-correctness, high-materiality agentic-loop decision.",
       "version": "0.1.0",
       "author": { "name": "Sarthak Gupta" },
-      "repository": "https://github.com/sarthakguptaquant/verification-adequacy",
+      "repository": "https://github.com/sarthakguptaquant/third-umpire",
       "license": "MIT",
       "keywords": ["agent", "governance", "loop", "verification", "ai-safety"],
-      "category": "productivity"
+      "category": "governance"
     }
   ]
 }

@@ -1,8 +1,8 @@
-"""Tests for the verification-adequacy gate. Run: python test_adequacy_gate.py"""
+"""Tests for the Third Umpire guard. Run: python test_third_umpire.py"""
 
-from adequacy_gate import (
+from third_umpire import (
     Decision,
-    adequacy_gate,
+    review,
     VerificationMode,
     TaskType,
     Materiality,
@@ -21,59 +21,59 @@ def main():
     # The rule fires: self-only, hard-correctness, high-materiality, no independent check.
     check(
         "self+hard+high+no-check -> require",
-        adequacy_gate(Decision(VerificationMode.SELF, TaskType.HARD_CORRECTNESS,
-                               Materiality.HIGH, has_independent_check=False)),
+        review(Decision(VerificationMode.SELF, TaskType.HARD_CORRECTNESS,
+                        Materiality.HIGH, has_independent_check=False)),
         REQUIRE_INDEPENDENT_CHECK,
     )
     # Independent check present: allowed.
     check(
         "self+hard+high+check -> allow",
-        adequacy_gate(Decision(VerificationMode.SELF, TaskType.HARD_CORRECTNESS,
-                               Materiality.HIGH, has_independent_check=True)),
+        review(Decision(VerificationMode.SELF, TaskType.HARD_CORRECTNESS,
+                        Materiality.HIGH, has_independent_check=True)),
         ALLOW,
     )
     # No independent check available at all: escalate to a human.
     check(
         "self+hard+high+no-check+unavailable -> escalate",
-        adequacy_gate(Decision(VerificationMode.SELF, TaskType.HARD_CORRECTNESS,
-                               Materiality.HIGH, has_independent_check=False,
-                               independent_check_available=False)),
+        review(Decision(VerificationMode.SELF, TaskType.HARD_CORRECTNESS,
+                        Materiality.HIGH, has_independent_check=False,
+                        independent_check_available=False)),
         ESCALATE,
     )
     # Soft, low-materiality: the rule does not fire even for self-only.
     check(
         "self+soft+low -> allow",
-        adequacy_gate(Decision(VerificationMode.SELF, TaskType.SOFT, Materiality.LOW)),
+        review(Decision(VerificationMode.SELF, TaskType.SOFT, Materiality.LOW)),
         ALLOW,
     )
     # Unknown task/materiality default to the safe side, so the rule fires.
     check(
         "self+unknown+unknown -> require (conservative default)",
-        adequacy_gate(Decision(VerificationMode.SELF, TaskType.UNKNOWN, Materiality.UNKNOWN)),
+        review(Decision(VerificationMode.SELF, TaskType.UNKNOWN, Materiality.UNKNOWN)),
         REQUIRE_INDEPENDENT_CHECK,
     )
     # Non-self modes are never restricted by this rule.
     for mode in (VerificationMode.PEER, VerificationMode.TOOL, VerificationMode.HUMAN):
         check(
             f"{mode}+hard+high -> allow",
-            adequacy_gate(Decision(mode, TaskType.HARD_CORRECTNESS, Materiality.HIGH)),
+            review(Decision(mode, TaskType.HARD_CORRECTNESS, Materiality.HIGH)),
             ALLOW,
         )
     # Self on hard-correctness but low materiality: rule does not fire.
     check(
         "self+hard+low -> allow",
-        adequacy_gate(Decision(VerificationMode.SELF, TaskType.HARD_CORRECTNESS, Materiality.LOW)),
+        review(Decision(VerificationMode.SELF, TaskType.HARD_CORRECTNESS, Materiality.LOW)),
         ALLOW,
     )
     # Self on soft but high materiality: rule does not fire (task is soft).
     check(
         "self+soft+high -> allow",
-        adequacy_gate(Decision(VerificationMode.SELF, TaskType.SOFT, Materiality.HIGH)),
+        review(Decision(VerificationMode.SELF, TaskType.SOFT, Materiality.HIGH)),
         ALLOW,
     )
     # Bad mode raises.
     try:
-        adequacy_gate(Decision("magic", TaskType.SOFT, Materiality.LOW))
+        review(Decision("magic", TaskType.SOFT, Materiality.LOW))
         raise AssertionError("expected ValueError for unknown mode")
     except ValueError:
         print("  ok: unknown mode raises ValueError")

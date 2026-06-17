@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Install the verification-adequacy skill into a Claude skills directory.
+# Install the third-umpire skill into a Claude skills directory.
 #
 # Usage:
 #   ./install.sh                 # install for the current user (~/.claude/skills)
@@ -7,14 +7,14 @@
 #   ./install.sh --dir PATH      # install into a custom skills directory
 #
 # One-liner (public repo):
-#   curl -fsSL https://raw.githubusercontent.com/sarthakguptaquant/verification-adequacy/main/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/sarthakguptaquant/third-umpire/main/install.sh | bash
 #
-# This copies skills/verification-adequacy/ into the target skills directory. It does not
+# This copies skills/third-umpire/ into the target skills directory. It does not
 # require Claude Code itself; any agent runtime that reads SKILL.md folders can use it.
 set -euo pipefail
 
-REPO="https://github.com/sarthakguptaquant/verification-adequacy.git"
-SKILL="verification-adequacy"
+REPO="https://github.com/sarthakguptaquant/third-umpire.git"
+SKILL="third-umpire"
 TARGET="${HOME}/.claude/skills"
 
 while [ $# -gt 0 ]; do
@@ -47,4 +47,4 @@ cp -R "${SRC}" "${TARGET}/${SKILL}"
 [ -n "${CLEANUP}" ] && rm -rf "${CLEANUP}"
 
 echo "Installed ${SKILL} -> ${TARGET}/${SKILL}"
-echo "Verify: python3 ${TARGET}/${SKILL}/scripts/test_adequacy_gate.py"
+echo "Verify: python3 ${TARGET}/${SKILL}/scripts/test_third_umpire.py"

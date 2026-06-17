@@ -1,7 +1,7 @@
-# AGENTS.md — verification-adequacy
+# AGENTS.md — third-umpire
 
 This file lets any agent runtime that reads `AGENTS.md` (Codex, Cursor, and similar) pick up the
-same contract the Claude skill (`skills/verification-adequacy/SKILL.md`) encodes. The rule is
+same contract the Claude skill (`skills/third-umpire/SKILL.md`) encodes. The rule is
 runtime-agnostic.
 
 ## The rule
@@ -21,17 +21,17 @@ acting on it:
 
 ## The guard
 
-`skills/verification-adequacy/scripts/adequacy_gate.py` is a dependency-free Python implementation.
+`skills/third-umpire/scripts/third_umpire.py` is a dependency-free Python implementation.
 In any Python environment:
 
 ```bash
-pip install "git+https://github.com/sarthakguptaquant/verification-adequacy.git"
+pip install "git+https://github.com/sarthakguptaquant/third-umpire.git"
 ```
 
 ```python
-from adequacy_gate import Decision, adequacy_gate, VerificationMode, TaskType, Materiality
+from third_umpire import Decision, review, VerificationMode, TaskType, Materiality
 
-adequacy_gate(Decision(VerificationMode.SELF, TaskType.HARD_CORRECTNESS, Materiality.HIGH,
+review(Decision(VerificationMode.SELF, TaskType.HARD_CORRECTNESS, Materiality.HIGH,
                        has_independent_check=False))
 # -> "REQUIRE_INDEPENDENT_CHECK"
 ```
@@ -40,5 +40,5 @@ adequacy_gate(Decision(VerificationMode.SELF, TaskType.HARD_CORRECTNESS, Materia
 
 This gates the epistemics of verification, not the action. It composes with action-policy layers
 (AgentSpec, the Microsoft Agent Control Specification), it does not replace them. Full spec and limits
-are in `skills/verification-adequacy/reference/CONTRACT.md`. No external service or MCP server is
+are in `skills/third-umpire/reference/CONTRACT.md`. No external service or MCP server is
 required.

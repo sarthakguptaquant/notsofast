@@ -1,8 +1,12 @@
-"""Verification-adequacy gate: a deterministic, dependency-free reference guard.
+"""Third Umpire: a deterministic, dependency-free verification-adequacy guard for agentic loops.
 
-The rule, in one line: a self-only verification mode is not adequate as the sole gate on a
-hard-correctness, high-materiality decision. Such a decision must carry an independent check
-(cross-model critic, held-out verifier, tool or test oracle, or human gate) or be escalated.
+The metaphor is cricket. When an on-field call is high-stakes and contested, you do not let it
+stand on the on-field umpire alone; you go to the third umpire, the independent official who reviews
+it with evidence the on-field umpire cannot trust by themselves. This guard is that third umpire for
+an AI loop: when a loop closes on the model's own self-critique (the on-field call) and the decision
+is hard-correctness and high-materiality (a contested, consequential call), the call may not stand on
+self-critique alone. It must carry an independent check (cross-model, held-out, tool, or human) or be
+escalated.
 
 Grounding (motivation, not proof of this guard):
   - Huang et al., "LLMs Cannot Self-Correct Reasoning Yet," ICLR 2024 (arXiv:2310.01798):
@@ -22,7 +26,7 @@ from dataclasses import dataclass
 
 
 class VerificationMode:
-    """What closes the loop. SELF is the only mode the rule restricts."""
+    """What closes the loop. SELF (the on-field call) is the only mode the rule restricts."""
     SELF = "self"
     PEER = "peer"
     TOOL = "tool"
@@ -46,7 +50,7 @@ class Materiality:
     UNKNOWN = "unknown"
 
 
-# Verdicts
+# Verdicts (the third umpire's call)
 ALLOW = "ALLOW"
 REQUIRE_INDEPENDENT_CHECK = "REQUIRE_INDEPENDENT_CHECK"
 ESCALATE = "ESCALATE"
@@ -54,7 +58,7 @@ ESCALATE = "ESCALATE"
 
 @dataclass(frozen=True)
 class Decision:
-    """A single consequential loop decision to be gated.
+    """A single consequential loop decision to be reviewed.
 
     verification_mode    : one of VerificationMode.* (what closes the loop).
     task_type            : one of TaskType.* (UNKNOWN allowed; defaults conservatively).
@@ -82,8 +86,8 @@ def _effective_materiality(materiality: str) -> str:
     return Materiality.LOW if materiality == Materiality.LOW else Materiality.HIGH
 
 
-def adequacy_gate(decision: Decision) -> str:
-    """Return the verdict for a decision: ALLOW, REQUIRE_INDEPENDENT_CHECK, or ESCALATE.
+def review(decision: Decision) -> str:
+    """The third umpire's call on a decision: ALLOW, REQUIRE_INDEPENDENT_CHECK, or ESCALATE.
 
     The rule fires only when the loop is closed by self-critique on a hard-correctness,
     high-materiality decision. In every other case the verdict is ALLOW: the contract is
@@ -114,8 +118,8 @@ def adequacy_gate(decision: Decision) -> str:
 
 
 def explain(decision: Decision) -> str:
-    """Human-readable rationale for the verdict, for logging and audit."""
-    verdict = adequacy_gate(decision)
+    """Human-readable rationale for the call, for logging and audit."""
+    verdict = review(decision)
     task = _effective_task(decision.task_type)
     matl = _effective_materiality(decision.materiality)
     defaulted = []

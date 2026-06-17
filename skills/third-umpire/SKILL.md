@@ -1,5 +1,5 @@
 ---
-name: verification-adequacy
+name: third-umpire
 description: >
   Use when designing, reviewing, or governing an agentic AI loop and you need to check that the
   loop's verification structure is adequate for the stakes. Enforces one rule: a self-only critic
@@ -9,7 +9,11 @@ description: >
   human-in-the-loop decisions, model risk, and "should this loop be allowed to check its own work".
 ---
 
-# Verification Adequacy
+# Third Umpire
+
+> The independent review for an AI loop's high-stakes calls. When a loop wants to close on the
+> model's own self-critique and the decision is costly and checkable, the call does not stand on the
+> on-field umpire alone. It goes to the third umpire.
 
 ## The problem it solves
 
@@ -30,7 +34,8 @@ Two failure modes drive this:
 
 The action-level guardrails that shipped in the last year (AgentSpec, the Microsoft Agent Control
 Specification, and similar) check whether an *action* is allowed. None of them checks whether the
-*judgment* that approved the action is allowed to stand on its own. That is the gap this skill fills.
+*judgment* that approved the action is allowed to stand on its own. That is the gap Third Umpire fills:
+it enforces verification adequacy.
 
 ## What it saves you
 
@@ -44,15 +49,15 @@ Specification, and similar) check whether an *action* is allowed. None of them c
   of agentic software engineering, Salim et al., arXiv:2601.14470), and inference-scaling work shows
   accuracy plateaus where extra passes stop buying anything (Wu et al., arXiv:2408.00724). On a
   hard-correctness task the literature says self-critique will not reliably close the gap, so repeated
-  self-refine passes burn tokens without improving the answer. This skill flags that pattern early and
-  routes to an independent check or escalation instead of paying for more self-critique that cannot
+  self-refine passes burn tokens without improving the answer. Third Umpire flags that pattern early
+  and routes to an independent check or escalation instead of paying for more self-critique that cannot
   help. The saving is the self-refine iterations you stop running, not a guarantee of fewer tokens
   overall.
-- **A clean audit trail.** The verdict is a deterministic function of tagged inputs, so every gate
-  decision replays and is explainable, which is what an auditor or a risk function asks for.
+- **A clean audit trail.** The verdict is a deterministic function of tagged inputs, so every call
+  replays and is explainable, which is what an auditor or a risk function asks for.
 
 The honest counter-case: where a decision is genuinely soft (open-ended drafting, brainstorming,
-subjective quality) and low-materiality, self-critique is fine and the contract leaves it alone. The
+subjective quality) and low-materiality, self-critique is fine and Third Umpire leaves it alone. The
 value is concentrated on the hard-and-costly fraction, and the skill is built so the cheap-and-soft
 work is not slowed down.
 
@@ -85,18 +90,18 @@ help.
 2. **Classify the decision:** task type `soft` versus `hard_correctness`; materiality `low` versus
    `high`. When you cannot confidently classify, default to `hard_correctness` and `high`. The safe
    move is to demand more verification, never to wave a decision through.
-3. **Enforce the rule:** if the mode is `self` and the decision is `hard_correctness` and `high`, the
-   loop must have an independent check or it does not pass. Return `ALLOW`, `REQUIRE_INDEPENDENT_CHECK`,
-   or `ESCALATE`.
+3. **Send it to the umpire:** if the mode is `self` and the decision is `hard_correctness` and `high`,
+   the loop must have an independent check or it does not pass. The call is `ALLOW`,
+   `REQUIRE_INDEPENDENT_CHECK`, or `ESCALATE`.
 
 ## How to use the bundled guard
 
-`scripts/adequacy_gate.py` is a dependency-free reference implementation:
+`scripts/third_umpire.py` is a dependency-free reference implementation:
 
 ```python
-from adequacy_gate import Decision, adequacy_gate, VerificationMode, TaskType, Materiality
+from third_umpire import Decision, review, VerificationMode, TaskType, Materiality
 
-verdict = adequacy_gate(Decision(
+verdict = review(Decision(
     verification_mode=VerificationMode.SELF,
     task_type=TaskType.HARD_CORRECTNESS,
     materiality=Materiality.HIGH,
@@ -105,7 +110,7 @@ verdict = adequacy_gate(Decision(
 # verdict == "REQUIRE_INDEPENDENT_CHECK"
 ```
 
-Run `python scripts/test_adequacy_gate.py` for the test suite, and
+Run `python scripts/test_third_umpire.py` for the test suite, and
 `python examples/quickstart.py` for a worked self-refine-loop walkthrough.
 
 ## What this is not
