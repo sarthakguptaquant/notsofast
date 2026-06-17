@@ -1,8 +1,0 @@
-LICENSE
-README.md
-pyproject.toml
-skills/verification-adequacy/scripts/adequacy_gate.py
-skills/verification-adequacy/scripts/verification_adequacy.egg-info/PKG-INFO
-skills/verification-adequacy/scripts/verification_adequacy.egg-info/SOURCES.txt
-skills/verification-adequacy/scripts/verification_adequacy.egg-info/dependency_links.txt
-skills/verification-adequacy/scripts/verification_adequacy.egg-info/top_level.txt
