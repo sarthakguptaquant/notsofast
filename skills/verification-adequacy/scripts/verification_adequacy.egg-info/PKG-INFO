@@ -1,3 +1,16 @@
+Metadata-Version: 2.4
+Name: verification-adequacy
+Version: 0.1.0
+Summary: A deterministic guard that refuses a self-only critic as the sole gate on a hard-correctness, high-materiality agentic-loop decision.
+Author: Sarthak Gupta
+License: MIT
+Project-URL: Repository, https://github.com/sarthakguptaquant/verification-adequacy
+Keywords: agent,governance,loop,verification,ai-safety,llm
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
 # verification-adequacy
 
 A portable governance skill for agentic AI loops. It enforces one rule that the action-level

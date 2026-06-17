@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "sarthak-skills",
+  "owner": {
+    "name": "Sarthak Gupta"
+  },
+  "description": "Skills for agentic-AI governance and loop safety.",
+  "version": "0.1.0",
+  "plugins": [
+    {
+      "name": "verification-adequacy",
+      "displayName": "Verification Adequacy",
+      "source": "./",
+      "description": "Enforce that a self-only critic is not the sole gate on a hard-correctness, high-materiality agentic-loop decision.",
+      "version": "0.1.0",
+      "author": { "name": "Sarthak Gupta" },
+      "repository": "https://github.com/sarthakguptaquant/verification-adequacy",
+      "license": "MIT",
+      "keywords": ["agent", "governance", "loop", "verification", "ai-safety"],
+      "category": "productivity"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "verification-adequacy"
+version = "0.1.0"
+description = "A deterministic guard that refuses a self-only critic as the sole gate on a hard-correctness, high-materiality agentic-loop decision."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "Sarthak Gupta" }]
+keywords = ["agent", "governance", "loop", "verification", "ai-safety", "llm"]
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/sarthakguptaquant/verification-adequacy"
+
+# The canonical guard lives in the skill so the skill is self-contained. Packaging it as a
+# top-level module means `pip install` exposes the same import the skill uses (`adequacy_gate`),
+# so the guard runs unchanged in any Python environment, not only inside Claude Code.
+[tool.setuptools]
+package-dir = { "" = "skills/verification-adequacy/scripts" }
+py-modules = ["adequacy_gate"]
