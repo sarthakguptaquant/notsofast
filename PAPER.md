@@ -486,6 +486,6 @@ Governance and runtime-control landscape:
 
 ---
 
-*Source artifacts: the three-day study in `research/agentic-loops/daily/` (DAY-01 taxonomy, DAY-02
-failure modes, DAY-03 contribution scope). The finance reference application is the separate
-model-risk-agents project. Personal capacity, industry-level; no employer internals or figures.*
+*Source artifacts: the three-day study in `daily/` (DAY-01 taxonomy, DAY-02 failure modes, DAY-03
+contribution scope). The finance reference application is the separate model-risk-agents project.
+Personal capacity, industry-level; no employer internals or figures.*

@@ -1,11 +1,11 @@
 <img src="./assets/banner.svg" alt="Third Umpire: the independent review for an AI loop's high-stakes calls" width="100%" />
 
-When a loop wants to grade its own homework on a decision that costs real money, the call does not stand on the on-field umpire alone.
+*When an agentic loop grades its own homework on a call that costs real money, one rule applies.*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-1B3DFF.svg)](./LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-1B3DFF.svg)](https://www.python.org/)
+[![Tests: 11 + 2816-row conformance](https://img.shields.io/badge/tests-11%20%2B%202816--row%20conformance-00B870.svg)](../skills/third-umpire/scripts/test_third_umpire.py)
 [![Dependencies: none](https://img.shields.io/badge/dependencies-none-00B870.svg)](#)
-[![Built with Claude Code](https://img.shields.io/badge/built%20with-Claude%20Code-0F0E0B.svg)](https://claude.com/claude-code)
 
 ## What it is
 

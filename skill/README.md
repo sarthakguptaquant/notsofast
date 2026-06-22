@@ -65,8 +65,7 @@ claude plugin marketplace add sarthakguptaquant/third-umpire --scope user
 claude plugin install third-umpire@sarthak-skills --scope user
 ```
 
-A private repository works for manual install via your existing `gh auth` credentials; set
-`GITHUB_TOKEN` if you also want background auto-updates.
+If you have a fork or a private mirror, the installer works the same way with your existing `gh auth` credentials; set `GITHUB_TOKEN` if you also want background auto-updates.
 
 ### B. Skill folder (Claude Code, or any agent that reads SKILL.md)
 
@@ -105,7 +104,7 @@ review(Decision(
 ### Demo output
 
 ```text
-$ python examples/quickstart.py
+$ python skills/third-umpire/examples/quickstart.py
 == Scenario A: reserve adequacy (hard-correctness, high-materiality), no checker wired ==
 self-refine stopped after 1 pass(es); 4 futile pass(es) avoided; independent check -> held-out backtest + validator sign-off
 
