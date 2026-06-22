@@ -1,22 +1,12 @@
-# Third Umpire
+<img src="publish/assets/banner.svg" width="100%" alt="third-umpire: the independent review for an agentic loop's high-stakes calls">
 
-**The independent review for an AI loop's high-stakes calls.** When an agentic loop wants to close on
-the model's own self-critique and the decision is costly and checkable, the call does not stand on the
-on-field umpire alone. It goes to the third umpire: an independent check (cross-model, held-out, tool,
-or human), or it is escalated.
+*When an agentic loop grades its own homework on a call that costs real money, one rule applies.*
 
-![CI](https://github.com/sarthakguptaquant/third-umpire/actions/workflows/ci.yml/badge.svg)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-blue)
-![Dependencies: none](https://img.shields.io/badge/dependencies-none-success)
-
-Third Umpire enforces one rule the action-level guardrails do not: a `self`-only verification mode is
-not adequate as the sole gate on a `hard_correctness`, `high`-materiality decision. It ships three ways
-from one source: a **Claude Code plugin** (install by command), a **drop-in skill folder** (any agent
-that reads `SKILL.md`), and a **pip-installable Python guard** (any Python environment, including a
-hosted code session). It composes with action-policy layers such as AgentSpec and the Microsoft Agent
-Control Specification rather than replacing them: those gate the action, this gates the epistemics of
-the verification.
+[![CI](https://github.com/sarthakguptaquant/third-umpire/actions/workflows/ci.yml/badge.svg)](https://github.com/sarthakguptaquant/third-umpire/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-1B3DFF.svg)](LICENSE)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-1B3DFF.svg)](https://www.python.org/)
+[![Tests: 11 + 2816-row conformance](https://img.shields.io/badge/tests-11%20%2B%202816--row%20conformance-00B870.svg)](skills/third-umpire/scripts/test_third_umpire.py)
+[![Dependencies: none](https://img.shields.io/badge/dependencies-none-00B870.svg)](#)
 
 ## Why this exists
 
@@ -49,7 +39,17 @@ that is both checkable and costly to get wrong. Per-industry scenarios with verd
 [`skills/third-umpire/reference/USE-CASES.md`](skills/third-umpire/reference/USE-CASES.md). A runnable
 walkthrough is [`skills/third-umpire/examples/quickstart.py`](skills/third-umpire/examples/quickstart.py).
 
-## Install
+## What it does
+
+Third Umpire enforces one rule the action-level guardrails do not: a `self`-only verification mode is
+not adequate as the sole gate on a `hard_correctness`, `high`-materiality decision. It ships three ways
+from one source: a **Claude Code plugin** (install by command), a **drop-in skill folder** (any agent
+that reads `SKILL.md`), and a **pip-installable Python guard** (any Python environment, including a
+hosted code session). It composes with action-policy layers such as AgentSpec and the Microsoft Agent
+Control Specification rather than replacing them: those gate the action, this gates the epistemics of
+the verification.
+
+## How to use it
 
 ### A. Claude Code plugin (one command)
 
@@ -102,7 +102,7 @@ review(Decision(
 # -> "REQUIRE_INDEPENDENT_CHECK"
 ```
 
-## What it does (demo output)
+### Demo output
 
 ```text
 $ python examples/quickstart.py
@@ -121,6 +121,17 @@ self-refine closed on self-critique after 1 pass(es) (call stands)
 == Scenario E: unclassifiable decision -> conservative default (treated hard + high) ==
 verdict=REQUIRE_INDEPENDENT_CHECK; mode=self, task=hard_correctness, materiality=high, independent_check=absent (...)
 ```
+
+## Decision flow
+
+The routing logic is in [`skills/third-umpire/study/flow.svg`](skills/third-umpire/study/flow.svg).
+
+A brand-aligned version is at [`publish/assets/flow-brand.svg`](publish/assets/flow-brand.svg).
+
+## Case study
+
+The companion study measures the guard against a 2816-row synthetic conformance suite across finance,
+insurance, healthcare, and legal scenarios. Full methodology and results: [`skills/third-umpire/study/STUDY.md`](skills/third-umpire/study/STUDY.md).
 
 ## Works with
 
@@ -147,20 +158,6 @@ third-umpire/                                  repo root = plugin root = marketp
   install.sh, pyproject.toml, AGENTS.md, CHANGELOG.md, CONTRIBUTING.md, SECURITY.md, README.md, LICENSE
 ```
 
-## Verify
-
-```bash
-python3 skills/third-umpire/scripts/test_third_umpire.py
-python3 skills/third-umpire/examples/quickstart.py
-```
-
-## Do you need an MCP server?
-
-No. Third Umpire is self-contained: instructions plus a pure-Python guard with no external calls, so
-there is nothing for an MCP server to connect to. An MCP server becomes relevant only if you extend
-the skill to reach a live external service (a model registry to look up which model version closed a
-loop, a tracker to record escalations). For v1, none is required. See `SECURITY.md`.
-
 ## Status and honest scope
 
 The contract is a specification with a reference guard, not an empirically validated mechanism. The
@@ -168,3 +165,18 @@ soft-versus-hard task classification is a judgment call, closed by a conservativ
 unclassifiable decision is treated as hard and high). Full limitations are in
 `skills/third-umpire/reference/CONTRACT.md`. Authored in a personal, industry-level capacity using
 public sources.
+
+### Do you need an MCP server?
+
+No. Third Umpire is self-contained: instructions plus a pure-Python guard with no external calls, so
+there is nothing for an MCP server to connect to. An MCP server becomes relevant only if you extend
+the skill to reach a live external service (a model registry to look up which model version closed a
+loop, a tracker to record escalations). For v1, none is required. See `SECURITY.md`.
+
+## License and attribution
+
+MIT. See [LICENSE](LICENSE).
+
+Authored by Sarthak Gupta, Data Scientist II, Finance Models, in a personal, industry-level capacity
+using public sources and public frameworks. The views are my own, not my employer's, and contain no
+employer data or internals.

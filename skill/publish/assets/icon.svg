@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="third-umpire icon: a decision routed to three verdicts">
+  <title>third-umpire</title>
+
+  <!-- Tile: ink background, rounded square -->
+  <rect x="0" y="0" width="256" height="256" rx="58" fill="#0F0E0B"/>
+  <!-- The review box: a quant-blue framed screen, the third-umpire's TV-review gesture -->
+  <rect x="30" y="30" width="196" height="196" rx="38" fill="none" stroke="#1B3DFF" stroke-width="3" opacity="0.38"/>
+
+  <!-- Incoming decision: a short stub into the node from the left -->
+  <line x1="52" y1="128" x2="86" y2="128" stroke="#F4F1E8" stroke-width="11" stroke-linecap="round" opacity="0.55"/>
+
+  <!-- The three routed paths (drawn under the dots) -->
+  <g fill="none" stroke-width="11" stroke-linecap="round">
+    <path d="M86 128 Q150 128 178 72"  stroke="#00B870"/>
+    <path d="M86 128 L182 128"          stroke="#1B3DFF"/>
+    <path d="M86 128 Q150 128 178 184" stroke="#F4F1E8" opacity="0.55"/>
+  </g>
+
+  <!-- The decision node -->
+  <circle cx="86" cy="128" r="16" fill="#F4F1E8"/>
+
+  <!-- Three verdict endpoints: ALLOW (green), REQUIRE CHECK (blue), ESCALATE (cream) -->
+  <circle cx="182" cy="66"  r="17" fill="#00B870"/>
+  <circle cx="194" cy="128" r="17" fill="#1B3DFF"/>
+  <circle cx="182" cy="190" r="17" fill="#F4F1E8" opacity="0.55"/>
+</svg>

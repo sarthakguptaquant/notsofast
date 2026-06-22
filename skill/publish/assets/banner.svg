@@ -1,0 +1,181 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1280 320"
+  width="1280"
+  height="320"
+  role="img"
+  aria-label="third-umpire: verification skill for model risk reviews by Sarthak Gupta"
+>
+  <title>third-umpire: Sarthak Gupta, Quant + AI</title>
+  <desc>GitHub repo banner: third-umpire, a verification skill for model risk validation. By Sarthak Gupta, Data Scientist II, Finance Models.</desc>
+
+  <!-- ═══════════════════════════════════════════════
+       LAYER 0: Background fill
+  ══════════════════════════════════════════════════ -->
+  <rect width="1280" height="320" fill="#0F0E0B"/>
+
+  <!-- ═══════════════════════════════════════════════
+       LAYER 1: Grid , 6 horizontal rules, full width
+       y positions: 40, 80, 120, 160, 200, 240
+       quant-blue #1B3DFF at 14% opacity, 0.5px stroke
+  ══════════════════════════════════════════════════ -->
+  <g opacity="0.14" stroke="#1B3DFF" stroke-width="0.5" fill="none">
+    <line x1="0" y1="40"  x2="1280" y2="40"/>
+    <line x1="0" y1="80"  x2="1280" y2="80"/>
+    <line x1="0" y1="120" x2="1280" y2="120"/>
+    <line x1="0" y1="160" x2="1280" y2="160"/>
+    <line x1="0" y1="200" x2="1280" y2="200"/>
+    <line x1="0" y1="240" x2="1280" y2="240"/>
+  </g>
+
+  <!-- ═══════════════════════════════════════════════
+       LAYER 2: Sparkline motif , right 30% quadrant
+       Abstract time-series polyline
+       x: 896–1216, y: 96–224
+       cream #F4F1E8 at 22% opacity, 1px stroke, no fill
+  ══════════════════════════════════════════════════ -->
+  <polyline
+    points="896,188  960,152  1008,200  1056,118  1104,160  1152,104  1216,136"
+    fill="none"
+    stroke="#F4F1E8"
+    stroke-width="1"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+    opacity="0.22"
+  />
+
+  <!-- ═══════════════════════════════════════════════
+       LAYER 3: Footer rule
+       1px, quant-blue #1B3DFF at 60% opacity
+       x: 64–1216, y: 288
+  ══════════════════════════════════════════════════ -->
+  <line
+    x1="64" y1="288"
+    x2="1216" y2="288"
+    stroke="#1B3DFF"
+    stroke-width="1"
+    opacity="0.60"
+  />
+
+  <!-- ═══════════════════════════════════════════════
+       LAYER 4: Left content column
+       Safe area x: 64–800
+  ══════════════════════════════════════════════════ -->
+
+  <!-- Eyebrow: series label , JetBrains Mono 12px, quant-blue, ALL CAPS, tracking 0.08em -->
+  <!-- y=104: eyebrow baseline per spec -->
+  <text
+    x="64"
+    y="104"
+    font-family="'JetBrains Mono', 'Courier New', Courier, monospace"
+    font-size="12"
+    font-weight="500"
+    fill="#1B3DFF"
+    letter-spacing="0.08em"
+    text-anchor="start"
+  >VERIFICATION SKILL · VALIDATION</text>
+
+  <!-- Hero name: Fraunces 64px, cream, line-height 0.96 -->
+  <!-- y=144: 104 + 40 per spec -->
+  <!-- "third-umpire" is 12 chars; at ~36px/char avg for Fraunces 64px serif -->
+  <!-- estimated width ~432px , fits well within 800px boundary -->
+  <text
+    x="64"
+    y="144"
+    font-family="'Fraunces', Georgia, 'Times New Roman', serif"
+    font-size="64"
+    font-weight="500"
+    fill="#F4F1E8"
+    letter-spacing="-0.01em"
+    text-anchor="start"
+  >third-umpire</text>
+
+  <!-- Terminal cursor glyph: ▌ U+258C, terminal-green, same baseline -->
+  <!-- Placed immediately after repo name; gap via x offset -->
+  <!-- "third-umpire" at Fraunces 64px: estimated ~465px width from x:64 -->
+  <!-- cursor at x ≈ 64 + 465 + 4 = 533 -->
+  <text
+    x="533"
+    y="144"
+    font-family="'JetBrains Mono', 'Courier New', Courier, monospace"
+    font-size="60"
+    font-weight="400"
+    fill="#00B870"
+    text-anchor="start"
+  >&#x258C;</text>
+
+  <!-- Tagline: Geist 20px, cream 88% opacity, sentence case -->
+  <!-- y=172: 144 + 28 per spec -->
+  <!-- No em dashes (brand rule). Original used em dash; replaced with comma. -->
+  <!-- Text: "A skill for surfacing verification gaps in model risk reviews," -->
+  <!--        "because 'adequate' needs a second opinion."                    -->
+  <!-- At Geist 20px, ~736px available (64 to 800). Line 1 is ~580px, fits. -->
+  <text
+    x="64"
+    y="172"
+    font-family="'Geist', 'Inter', system-ui, -apple-system, sans-serif"
+    font-size="20"
+    font-weight="400"
+    fill="#F4F1E8"
+    opacity="0.88"
+    text-anchor="start"
+    xml:space="preserve"
+  >A skill for surfacing verification gaps in model risk reviews,</text>
+  <text
+    x="64"
+    y="202"
+    font-family="'Geist', 'Inter', system-ui, -apple-system, sans-serif"
+    font-size="20"
+    font-weight="400"
+    fill="#F4F1E8"
+    opacity="0.88"
+    text-anchor="start"
+  >because &#x2018;adequate&#x2019; needs a second opinion.</text>
+
+  <!-- ═══════════════════════════════════════════════
+       LAYER 5: Right column , personal mark stamp
+       Right-aligned to x:1216
+       Top aligned to eyebrow row (y=104 baseline)
+  ══════════════════════════════════════════════════ -->
+
+  <!-- Line 1: SARTHAK GUPTA , terminal-green, JetBrains Mono 11px -->
+  <text
+    x="1216"
+    y="104"
+    font-family="'JetBrains Mono', 'Courier New', Courier, monospace"
+    font-size="11"
+    font-weight="500"
+    fill="#00B870"
+    letter-spacing="0.07em"
+    text-anchor="end"
+  >SARTHAK GUPTA</text>
+
+  <!-- Line 2: DATA SCIENTIST II, FINANCE MODELS , cream 72% opacity -->
+  <!-- y: 104 + 16 = 120 (line-height ~1.45 at 11px) -->
+  <text
+    x="1216"
+    y="120"
+    font-family="'JetBrains Mono', 'Courier New', Courier, monospace"
+    font-size="11"
+    font-weight="500"
+    fill="#F4F1E8"
+    opacity="0.72"
+    letter-spacing="0.07em"
+    text-anchor="end"
+  >DATA SCIENTIST II, FINANCE MODELS</text>
+
+  <!-- Line 3: PERSONAL CAPACITY , cream 45% opacity, 10px -->
+  <!-- y: 120 + 15 = 135 -->
+  <text
+    x="1216"
+    y="135"
+    font-family="'JetBrains Mono', 'Courier New', Courier, monospace"
+    font-size="10"
+    font-weight="500"
+    fill="#F4F1E8"
+    opacity="0.45"
+    letter-spacing="0.07em"
+    text-anchor="end"
+  >PERSONAL CAPACITY</text>
+
+</svg>

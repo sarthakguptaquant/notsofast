@@ -1,0 +1,232 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 720 520"
+  width="720"
+  height="520"
+  role="img"
+  aria-label="third-umpire decision flow: one input routed to ALLOW, REQUIRE_INDEPENDENT_CHECK, or ESCALATE"
+>
+  <title>third-umpire: decision flow</title>
+  <desc>Brand-aligned decision diagram. A decision enters the verification gate; the guard routes it to one of three verdicts: ALLOW (green), REQUIRE_INDEPENDENT_CHECK (blue), or ESCALATE (cream). Ink background, no gradients.</desc>
+
+  <!-- Background -->
+  <rect width="720" height="520" fill="#0F0E0B"/>
+
+  <!-- Grid: 6 horizontal rules, quant-blue 14% opacity, 0.5px -->
+  <g opacity="0.14" stroke="#1B3DFF" stroke-width="0.5" fill="none">
+    <line x1="0" y1="80"  x2="720" y2="80"/>
+    <line x1="0" y1="160" x2="720" y2="160"/>
+    <line x1="0" y1="240" x2="720" y2="240"/>
+    <line x1="0" y1="320" x2="720" y2="320"/>
+    <line x1="0" y1="400" x2="720" y2="400"/>
+    <line x1="0" y1="480" x2="720" y2="480"/>
+  </g>
+
+  <!-- ─────────────────────────────────────────────
+       INPUT NODE — centered x=360, y=60
+       Box: x=240 y=36 w=240 h=48
+  ───────────────────────────────────────────── -->
+  <rect x="240" y="36" width="240" height="48" rx="6"
+    fill="none" stroke="#F4F1E8" stroke-width="1.5" opacity="0.55"/>
+  <text
+    x="360" y="55"
+    font-family="'JetBrains Mono', 'Courier New', Courier, monospace"
+    font-size="10" font-weight="500" fill="#F4F1E8" opacity="0.55"
+    letter-spacing="0.07em" text-anchor="middle"
+  >DECISION</text>
+  <text
+    x="360" y="74"
+    font-family="'Geist', 'Inter', system-ui, sans-serif"
+    font-size="11" font-weight="400" fill="#F4F1E8" opacity="0.70"
+    text-anchor="middle"
+  >agentic loop wants to close</text>
+
+  <!-- Arrow: input → verification gate -->
+  <line x1="360" y1="84" x2="360" y2="148"
+    stroke="#F4F1E8" stroke-width="1.5" opacity="0.45"
+    marker-end="url(#arrowInk)"/>
+
+  <!-- ─────────────────────────────────────────────
+       VERIFICATION GATE — centered x=360, y=180
+       Box: x=180 y=152 w=300 h=56
+  ───────────────────────────────────────────── -->
+  <rect x="180" y="152" width="300" height="56" rx="6"
+    fill="#0F0E0B" stroke="#1B3DFF" stroke-width="1.5"/>
+  <text
+    x="330" y="173"
+    font-family="'JetBrains Mono', 'Courier New', Courier, monospace"
+    font-size="10" font-weight="500" fill="#1B3DFF"
+    letter-spacing="0.07em" text-anchor="middle"
+  >VERIFICATION GATE</text>
+  <text
+    x="330" y="193"
+    font-family="'Geist', 'Inter', system-ui, sans-serif"
+    font-size="11" font-weight="400" fill="#F4F1E8" opacity="0.75"
+    text-anchor="middle"
+  >third-umpire.review(decision)</text>
+
+  <!-- ─────────────────────────────────────────────
+       Arrow labels: YES / NO / ABSENT
+       Three paths fan out from gate bottom (y=208)
+  ───────────────────────────────────────────── -->
+
+  <!-- Arrowhead marker — ink color (for neutral connectors) -->
+  <defs>
+    <marker id="arrowInk" markerWidth="8" markerHeight="8"
+      refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#F4F1E8" opacity="0.45"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="8"
+      refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#00B870"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="8"
+      refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#1B3DFF"/>
+    </marker>
+    <marker id="arrowCream" markerWidth="8" markerHeight="8"
+      refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#F4F1E8" opacity="0.55"/>
+    </marker>
+  </defs>
+
+  <!-- LEFT path: soft + low-materiality → ALLOW -->
+  <!-- From gate left side (x=180, y=180) → left → down to ALLOW box -->
+  <path d="M180 180 L96 180 L96 300"
+    fill="none" stroke="#00B870" stroke-width="1.5"
+    marker-end="url(#arrowGreen)"/>
+  <!-- Edge label -->
+  <text x="130" y="174"
+    font-family="'JetBrains Mono', 'Courier New', Courier, monospace"
+    font-size="9" font-weight="500" fill="#00B870"
+    letter-spacing="0.06em" text-anchor="middle"
+  >SOFT / LOW</text>
+
+  <!-- CENTER path: hard + independent check present → drops to REQUIRE_INDEPENDENT_CHECK -->
+  <!-- From gate bottom center (x=330, y=208) → down -->
+  <line x1="330" y1="208" x2="330" y2="298"
+    stroke="#1B3DFF" stroke-width="1.5"
+    marker-end="url(#arrowBlue)"/>
+  <!-- Edge label -->
+  <text x="353" y="258"
+    font-family="'JetBrains Mono', 'Courier New', Courier, monospace"
+    font-size="9" font-weight="500" fill="#1B3DFF"
+    letter-spacing="0.06em" text-anchor="start"
+  >HARD + HIGH</text>
+  <text x="353" y="270"
+    font-family="'JetBrains Mono', 'Courier New', Courier, monospace"
+    font-size="9" font-weight="500" fill="#1B3DFF"
+    letter-spacing="0.06em" text-anchor="start"
+  >CHECK AVAILABLE</text>
+
+  <!-- RIGHT path: hard + no check available → ESCALATE -->
+  <!-- From gate right side (x=480, y=180) → right → down to ESCALATE box -->
+  <path d="M480 180 L596 180 L596 300"
+    fill="none" stroke="#F4F1E8" stroke-width="1.5" opacity="0.55"
+    marker-end="url(#arrowCream)"/>
+  <!-- Edge label -->
+  <text x="545" y="174"
+    font-family="'JetBrains Mono', 'Courier New', Courier, monospace"
+    font-size="9" font-weight="500" fill="#F4F1E8" opacity="0.55"
+    letter-spacing="0.06em" text-anchor="middle"
+  >HARD / NO CHECK</text>
+
+  <!-- ─────────────────────────────────────────────
+       VERDICT BOXES — y=300..380
+  ───────────────────────────────────────────── -->
+
+  <!-- ALLOW — green, left column, centered x=96 -->
+  <rect x="30" y="300" width="132" height="80" rx="6"
+    fill="#00B870" stroke="#00B870" stroke-width="1.5"/>
+  <text x="96" y="330"
+    font-family="'JetBrains Mono', 'Courier New', Courier, monospace"
+    font-size="13" font-weight="500" fill="#0F0E0B"
+    letter-spacing="0.07em" text-anchor="middle"
+  >ALLOW</text>
+  <text x="96" y="351"
+    font-family="'Geist', 'Inter', system-ui, sans-serif"
+    font-size="10" font-weight="400" fill="#0F0E0B" opacity="0.75"
+    text-anchor="middle"
+  >self-critique</text>
+  <text x="96" y="365"
+    font-family="'Geist', 'Inter', system-ui, sans-serif"
+    font-size="10" font-weight="400" fill="#0F0E0B" opacity="0.75"
+    text-anchor="middle"
+  >stands</text>
+
+  <!-- REQUIRE_INDEPENDENT_CHECK — blue, center column, centered x=330 -->
+  <!-- Box is wider to accommodate long label: x=216 w=228 -->
+  <rect x="216" y="300" width="228" height="80" rx="6"
+    fill="#1B3DFF" stroke="#1B3DFF" stroke-width="1.5"/>
+  <!-- Single-line label at 10px fits the 228px box (~162px rendered); avoids orphaning _CHECK -->
+  <text x="330" y="334"
+    font-family="'JetBrains Mono', 'Courier New', Courier, monospace"
+    font-size="10" font-weight="500" fill="#F4F1E8"
+    letter-spacing="0.04em" text-anchor="middle"
+  >REQUIRE_INDEPENDENT_CHECK</text>
+  <text x="330" y="356"
+    font-family="'Geist', 'Inter', system-ui, sans-serif"
+    font-size="10" font-weight="400" fill="#F4F1E8" opacity="0.80"
+    text-anchor="middle"
+  >cross-model / held-out / human</text>
+
+  <!-- ESCALATE — cream 55%, right column, centered x=596 -->
+  <rect x="530" y="300" width="132" height="80" rx="6"
+    fill="none" stroke="#F4F1E8" stroke-width="1.5" opacity="0.55"/>
+  <text x="596" y="330"
+    font-family="'JetBrains Mono', 'Courier New', Courier, monospace"
+    font-size="13" font-weight="500" fill="#F4F1E8" opacity="0.55"
+    letter-spacing="0.07em" text-anchor="middle"
+  >ESCALATE</text>
+  <text x="596" y="351"
+    font-family="'Geist', 'Inter', system-ui, sans-serif"
+    font-size="10" font-weight="400" fill="#F4F1E8" opacity="0.50"
+    text-anchor="middle"
+  >hand to human,</text>
+  <text x="596" y="365"
+    font-family="'Geist', 'Inter', system-ui, sans-serif"
+    font-size="10" font-weight="400" fill="#F4F1E8" opacity="0.50"
+    text-anchor="middle"
+  >no check available</text>
+
+  <!-- ─────────────────────────────────────────────
+       CONSERVATIVE DEFAULT note
+       Unclassifiable decisions treated as hard + high
+  ───────────────────────────────────────────── -->
+  <!-- Arrow from REQUIRE_INDEPENDENT_CHECK box bottom center down to note -->
+  <line x1="330" y1="380" x2="330" y2="418"
+    stroke="#1B3DFF" stroke-width="1" opacity="0.45"
+    stroke-dasharray="4 3"
+    marker-end="url(#arrowBlue)"/>
+  <rect x="200" y="420" width="260" height="36" rx="4"
+    fill="none" stroke="#1B3DFF" stroke-width="1" opacity="0.35"/>
+  <text x="330" y="434"
+    font-family="'JetBrains Mono', 'Courier New', Courier, monospace"
+    font-size="9" font-weight="500" fill="#1B3DFF" opacity="0.70"
+    letter-spacing="0.05em" text-anchor="middle"
+  >CONSERVATIVE DEFAULT:</text>
+  <text x="330" y="448"
+    font-family="'Geist', 'Inter', system-ui, sans-serif"
+    font-size="9" font-weight="400" fill="#F4F1E8" opacity="0.55"
+    text-anchor="middle"
+  >unclassifiable treated as hard + high</text>
+
+  <!-- ─────────────────────────────────────────────
+       Footer rule + attribution stamp
+  ───────────────────────────────────────────── -->
+  <line x1="40" y1="490" x2="680" y2="490"
+    stroke="#1B3DFF" stroke-width="1" opacity="0.60"/>
+
+  <text x="40" y="508"
+    font-family="'JetBrains Mono', 'Courier New', Courier, monospace"
+    font-size="9" font-weight="500" fill="#00B870"
+    letter-spacing="0.07em" text-anchor="start"
+  >THIRD-UMPIRE</text>
+
+  <text x="680" y="508"
+    font-family="'JetBrains Mono', 'Courier New', Courier, monospace"
+    font-size="9" font-weight="400" fill="#F4F1E8" opacity="0.45"
+    letter-spacing="0.05em" text-anchor="end"
+  >SARTHAK GUPTA · DATA SCIENTIST II, FINANCE MODELS · PERSONAL CAPACITY</text>
+
+</svg>

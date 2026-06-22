@@ -1,0 +1,65 @@
+{
+  "assumptions": {
+    "SEED": 20260617,
+    "GEN": 600,
+    "REFINE_PASS": 800,
+    "INDEP_CHECK": 700,
+    "HUMAN_HANDOFF": 200,
+    "REWORK_HARD_HIGH": 9000,
+    "P0": {
+      "hard_correctness": 0.55,
+      "soft": 0.75
+    },
+    "SOFT_REFINE_GAIN": 0.8,
+    "HARD_REFINE_DRIFT": 0.015,
+    "CHECK_CATCH": 0.6,
+    "HUMAN_CATCH": 0.9,
+    "K_REFINE": 4,
+    "K_SOFT": 2,
+    "POP_MIX": {
+      "('soft', 'low')": 0.35,
+      "('soft', 'high')": 0.15,
+      "('hard_correctness', 'low')": 0.2,
+      "('hard_correctness', 'high')": 0.3
+    },
+    "N": 1000,
+    "CHECK_AVAILABLE_RATE": 0.85,
+    "POLICIES": {
+      "ship (no validation)": "<function hard_ship at 0x1084af100>",
+      "naive self-refine (K=4)": "<function hard_refine_k at 0x1084af1a0>",
+      "validate everything": "<function hard_validate_all at 0x1084af240>",
+      "third-umpire (routed)": "<function hard_third_umpire at 0x1084af2e0>"
+    }
+  },
+  "results": {
+    "ship (no validation)": {
+      "verify_tokens": 1398400,
+      "rework_tokens": 1206900,
+      "total_tokens": 2605300,
+      "acc_hard_high": 0.55,
+      "wrong_hard_high": 134.1
+    },
+    "naive self-refine (K=4)": {
+      "verify_tokens": 3001600,
+      "rework_tokens": 1367820,
+      "total_tokens": 4369420,
+      "acc_hard_high": 0.49000000000000005,
+      "wrong_hard_high": 152.0
+    },
+    "validate everything": {
+      "verify_tokens": 1749100,
+      "rework_tokens": 482760,
+      "total_tokens": 2231860,
+      "acc_hard_high": 0.8200000000000001,
+      "wrong_hard_high": 53.6
+    },
+    "third-umpire (routed)": {
+      "verify_tokens": 1580500,
+      "rework_tokens": 418365,
+      "total_tokens": 1998865,
+      "acc_hard_high": 0.844010067114094,
+      "wrong_hard_high": 46.5
+    }
+  },
+  "disclaimer": "Transparent simulation calibrated to Huang et al. 2024; not a live-LLM benchmark. third_umpire.review() does the actual routing. Soft tasks handled identically across policies to isolate the guard."
+}
