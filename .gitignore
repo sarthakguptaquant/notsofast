@@ -1,8 +1,7 @@
+*.egg-info/
 __pycache__/
 *.pyc
-*.pyo
-.DS_Store
+dist/
+build/
+uv.lock
 .venv/
-venv/
-env/
-.ipynb_checkpoints/
