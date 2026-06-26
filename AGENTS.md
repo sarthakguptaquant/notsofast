@@ -1,4 +1,4 @@
-# AGENTS.md — third-umpire
+# AGENTS.md - third-umpire
 
 This file lets any agent runtime that reads `AGENTS.md` (Codex, Cursor, and similar) pick up the
 same contract the Claude skill (`skills/third-umpire/SKILL.md`) encodes. The rule is

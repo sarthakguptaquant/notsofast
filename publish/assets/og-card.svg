@@ -12,7 +12,7 @@
   <!-- LAYER 0: Background -->
   <rect width="1280" height="640" fill="#0F0E0B"/>
 
-  <!-- LAYER 1: Grid — 6 horizontal rules, quant-blue 14% opacity, 0.5px -->
+  <!-- LAYER 1: Grid - 6 horizontal rules, quant-blue 14% opacity, 0.5px -->
   <g opacity="0.14" stroke="#1B3DFF" stroke-width="0.5" fill="none">
     <line x1="0" y1="80"  x2="1280" y2="80"/>
     <line x1="0" y1="160" x2="1280" y2="160"/>
@@ -36,7 +36,7 @@
     text-anchor="start"
   >VERIFICATION SKILL · AGENTIC AI</text>
 
-  <!-- Hero: "third-umpire" — Fraunces 72px, cream, weight 500, tracking -0.01em -->
+  <!-- Hero: "third-umpire" - Fraunces 72px, cream, weight 500, tracking -0.01em -->
   <!-- Width estimate: 12 chars × ~39px avg = ~468px; starts x=80, ends ~548; cursor at ~556 -->
   <!-- Well within x=860 boundary -->
   <text
@@ -50,7 +50,7 @@
     text-anchor="start"
   >third-umpire</text>
 
-  <!-- Terminal cursor ▌ — JetBrains Mono ~68px, terminal-green -->
+  <!-- Terminal cursor ▌ - JetBrains Mono ~68px, terminal-green -->
   <!-- x offset: 80 + estimated 12-char Fraunces 72px width ~468px + 8px gap = 556 -->
   <!-- y nudged from 220 to 225 so the block glyph baseline aligns with the Fraunces hero -->
   <text
@@ -91,7 +91,7 @@
   <!-- Verdict row: y=380 -->
   <!-- Measure: dot(r5=10w) + 4gap + ALLOW(5×7.8=39) + 32gap + dot + 4gap + REQUIRE_INDEPENDENT_CHECK(25×7.8=195) + 32gap + dot + 4gap + ESCALATE(8×7.8=62) ≈ 396px; ends at x=476; within x=820 -->
 
-  <!-- ALLOW — green -->
+  <!-- ALLOW - green -->
   <circle cx="91" cy="376" r="5" fill="#00B870"/>
   <text
     x="104"
@@ -104,7 +104,7 @@
     text-anchor="start"
   >ALLOW</text>
 
-  <!-- REQUIRE_INDEPENDENT_CHECK — blue -->
+  <!-- REQUIRE_INDEPENDENT_CHECK - blue -->
   <!-- x start: 104 + 5×(13×0.6)=39 + tracking(5×0.07×13≈4.5) + 32gap = 179.5 ~ 180 -->
   <circle cx="191" cy="376" r="5" fill="#1B3DFF"/>
   <text
@@ -118,7 +118,7 @@
     text-anchor="start"
   >REQUIRE_INDEPENDENT_CHECK</text>
 
-  <!-- ESCALATE — cream 55% -->
+  <!-- ESCALATE - cream 55% -->
   <!-- x start: 204 + 25×(13×0.6)=195 + tracking(25×0.07×13≈22.75) + 32gap ≈ 454 -->
   <circle cx="465" cy="376" r="5" fill="#F4F1E8" opacity="0.55"/>
   <text
@@ -133,7 +133,7 @@
     text-anchor="start"
   >ESCALATE</text>
 
-  <!-- LAYER 3: Right column — icon.svg paths scaled to 200×200, centered at x=1050 y=260 -->
+  <!-- LAYER 3: Right column - icon.svg paths scaled to 200×200, centered at x=1050 y=260 -->
   <!-- Icon viewBox="0 0 256 256", scaling to 200×200: scale=200/256≈0.78125 -->
   <!-- translate to position center at (1050,260): translate(1050-100, 260-100) = (950,160) -->
   <g transform="translate(950,160) scale(0.78125)">
@@ -157,7 +157,7 @@
     <circle cx="182" cy="190" r="17" fill="#F4F1E8" opacity="0.55"/>
   </g>
 
-  <!-- LAYER 4: Footer rule — 1px, quant-blue 60%, x=80..1200, y=560 -->
+  <!-- LAYER 4: Footer rule - 1px, quant-blue 60%, x=80..1200, y=560 -->
   <line
     x1="80" y1="560"
     x2="1200" y2="560"
@@ -166,8 +166,8 @@
     opacity="0.60"
   />
 
-  <!-- Attribution stamp: right-aligned to x=1200, y=580 — JetBrains Mono 11px -->
-  <!-- Line 1: SARTHAK GUPTA — terminal-green -->
+  <!-- Attribution stamp: right-aligned to x=1200, y=580 - JetBrains Mono 11px -->
+  <!-- Line 1: SARTHAK GUPTA - terminal-green -->
   <text
     x="1200"
     y="580"
@@ -179,7 +179,7 @@
     text-anchor="end"
   >SARTHAK GUPTA</text>
 
-  <!-- Line 2: DATA SCIENTIST II, FINANCE MODELS — cream 72% -->
+  <!-- Line 2: DATA SCIENTIST II, FINANCE MODELS - cream 72% -->
   <text
     x="1200"
     y="596"
@@ -192,7 +192,7 @@
     text-anchor="end"
   >DATA SCIENTIST II, FINANCE MODELS</text>
 
-  <!-- Line 3: PERSONAL CAPACITY — cream 45% -->
+  <!-- Line 3: PERSONAL CAPACITY - cream 45% -->
   <text
     x="1200"
     y="611"

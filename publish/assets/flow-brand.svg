@@ -23,7 +23,7 @@
   </g>
 
   <!-- ─────────────────────────────────────────────
-       INPUT NODE — centered x=360, y=60
+       INPUT NODE - centered x=360, y=60
        Box: x=240 y=36 w=240 h=48
   ───────────────────────────────────────────── -->
   <rect x="240" y="36" width="240" height="48" rx="6"
@@ -47,7 +47,7 @@
     marker-end="url(#arrowInk)"/>
 
   <!-- ─────────────────────────────────────────────
-       VERIFICATION GATE — centered x=360, y=180
+       VERIFICATION GATE - centered x=360, y=180
        Box: x=180 y=152 w=300 h=56
   ───────────────────────────────────────────── -->
   <rect x="180" y="152" width="300" height="56" rx="6"
@@ -70,7 +70,7 @@
        Three paths fan out from gate bottom (y=208)
   ───────────────────────────────────────────── -->
 
-  <!-- Arrowhead marker — ink color (for neutral connectors) -->
+  <!-- Arrowhead marker - ink color (for neutral connectors) -->
   <defs>
     <marker id="arrowInk" markerWidth="8" markerHeight="8"
       refX="6" refY="3" orient="auto">
@@ -132,10 +132,10 @@
   >HARD / NO CHECK</text>
 
   <!-- ─────────────────────────────────────────────
-       VERDICT BOXES — y=300..380
+       VERDICT BOXES - y=300..380
   ───────────────────────────────────────────── -->
 
-  <!-- ALLOW — green, left column, centered x=96 -->
+  <!-- ALLOW - green, left column, centered x=96 -->
   <rect x="30" y="300" width="132" height="80" rx="6"
     fill="#00B870" stroke="#00B870" stroke-width="1.5"/>
   <text x="96" y="330"
@@ -154,7 +154,7 @@
     text-anchor="middle"
   >stands</text>
 
-  <!-- REQUIRE_INDEPENDENT_CHECK — blue, center column, centered x=330 -->
+  <!-- REQUIRE_INDEPENDENT_CHECK - blue, center column, centered x=330 -->
   <!-- Box is wider to accommodate long label: x=216 w=228 -->
   <rect x="216" y="300" width="228" height="80" rx="6"
     fill="#1B3DFF" stroke="#1B3DFF" stroke-width="1.5"/>
@@ -170,7 +170,7 @@
     text-anchor="middle"
   >cross-model / held-out / human</text>
 
-  <!-- ESCALATE — cream 55%, right column, centered x=596 -->
+  <!-- ESCALATE - cream 55%, right column, centered x=596 -->
   <rect x="530" y="300" width="132" height="80" rx="6"
     fill="none" stroke="#F4F1E8" stroke-width="1.5" opacity="0.55"/>
   <text x="596" y="330"
