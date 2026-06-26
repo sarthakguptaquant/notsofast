@@ -70,7 +70,7 @@ def self_refine_loop(decision_meta, run_independent_check=None, escalate_to_huma
 
 
 def main():
-    print("== Scenario A: reserve adequacy (hard-correctness, high-materiality), no checker wired ==")
+    print("== Scenario A: a credit-limit decision (hard-correctness, high-materiality), no checker wired ==")
     print(self_refine_loop(
         {"task_type": TaskType.HARD_CORRECTNESS, "materiality": Materiality.HIGH},
         run_independent_check=lambda: "held-out backtest + validator sign-off",

@@ -21,8 +21,8 @@ may stand on its own.
 
 **What it saves you.**
 - *Avoided high-cost errors (the main value):* a wrong high-materiality decision a self-critic waved
-  through is expensive in the real world (a mispriced premium, a wrong reserve, a wrongly rejected
-  claim, a bad merge to production). Third Umpire forces an independent check before such a decision
+  through is expensive in the real world (a mispriced position, a wrong risk number, a bad credit
+  decision, a bad merge to production). Third Umpire forces an independent check before such a decision
   stands; the check is cheap relative to the loss.
 - *Reduced token waste on futile self-refinement:* refinement loops are a large share of agentic token
   spend (the review stage alone was 59.4 percent of tokens in one study, Salim et al., arXiv:2601.14470)
@@ -105,7 +105,7 @@ review(Decision(
 
 ```text
 $ python skills/third-umpire/examples/quickstart.py
-== Scenario A: reserve adequacy (hard-correctness, high-materiality), no checker wired ==
+== Scenario A: a credit-limit decision (hard-correctness, high-materiality), no checker wired ==
 self-refine stopped after 1 pass(es); 4 futile pass(es) avoided; independent check -> held-out backtest + validator sign-off
 
 == Scenario B: same decision, but no independent check is even available ==

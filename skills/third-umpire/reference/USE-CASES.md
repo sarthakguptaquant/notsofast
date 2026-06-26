@@ -18,16 +18,16 @@ These are illustrative scenarios, not measured results.
 - **Why it matters:** model risk is assumption risk; a model grading its own assumptions is the
   failure regulators care about most.
 
-## 2. Insurance
+## 2. Trading and markets
 
-- **Loop:** a claims agent decides adjudication, or an underwriting agent prices a policy, then
-  self-checks.
-- **Decision:** pay, deny, or reserve a claim; set a premium.
+- **Loop:** an autonomous agent sizes a position or signs off a mark-to-market valuation, then
+  self-checks its own pricing.
+- **Decision:** put on the position at that size; accept the valuation.
 - **Verification mode:** `self`.
-- **Classification:** `hard_correctness`, `high` (a wrongly denied claim or a mispriced book is real
-  money and a regulatory matter).
-- **Verdict:** `REQUIRE_INDEPENDENT_CHECK`. Add an actuarial or tool check, or escalate to a human
-  adjuster for the high-severity band.
+- **Classification:** `hard_correctness`, `high` (a mispriced book or an oversized position is real
+  money and a risk-limit matter).
+- **Verdict:** `REQUIRE_INDEPENDENT_CHECK`. Add an independent pricing model or a risk-limit tool
+  check, or escalate to a risk officer for the large-notional band.
 
 ## 3. Healthcare
 

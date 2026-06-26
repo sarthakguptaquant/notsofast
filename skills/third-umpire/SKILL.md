@@ -40,8 +40,8 @@ it enforces verification adequacy.
 ## What it saves you
 
 - **Avoided high-cost errors (the main value).** On a hard-correctness, high-materiality decision, a
-  wrong answer that a self-critic waved through is expensive in the real world: a mispriced premium, a
-  wrong reserve, a wrongly rejected claim, a bad code merge to production, a flawed compliance
+  wrong answer that a self-critic waved through is expensive in the real world: a mispriced position, a
+  wrong risk number, a bad credit decision, a bad code merge to production, a flawed compliance
   determination. The contract forces a second, independent set of eyes (model, tool, or human) before
   such a decision stands. The check is cheap relative to the loss it prevents.
 - **Reduced token and cost waste on futile self-refinement.** Refinement loops are a major share of
@@ -65,9 +65,8 @@ work is not slowed down.
 
 Anywhere agentic loops make decisions that are both checkable and costly to get wrong:
 
-- **Finance and model risk:** credit decisions, reserving, VaR and pricing model outputs, forecast
+- **Finance and model risk:** credit decisions, VaR and pricing model outputs, capital and forecast
   sign-off. (Worked end-state in `reference/CONTRACT.md`.)
-- **Insurance:** claims adjudication, underwriting, reserve adequacy.
 - **Healthcare:** clinical decision support, triage, coding and prior-authorization.
 - **Legal and compliance:** contract review, regulatory determinations, policy checks.
 - **Software engineering:** autonomous code-generation and PR agents merging to production.

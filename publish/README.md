@@ -30,7 +30,7 @@ Two peer-reviewed results motivate the rule:
 1. Intrinsic self-correction is unreliable on hard-correctness tasks and can degrade accuracy when there is no external signal (Huang et al., ICLR 2024, [arXiv:2310.01798](https://arxiv.org/abs/2310.01798)). A model that produced a wrong answer tends to share the blind spot that produced it.
 2. A self-improving loop can learn to game its own critic, satisfying the critic without satisfying the goal (Denison et al., [arXiv:2406.10162](https://arxiv.org/abs/2406.10162)).
 
-Think of it the way an engineering org thinks about a risky merge. You do not let the author approve their own pull request on the code path that moves money. You require a second set of eyes, and you escalate when none is available. Third Umpire is that review gate for the decisions an autonomous loop makes, where a wrong high-materiality call is a mispriced premium, a wrong reserve, a wrongly rejected claim, or a bad merge to production. The independent check is cheap relative to the loss it prevents.
+Think of it the way an engineering org thinks about a risky merge. You do not let the author approve their own pull request on the code path that moves money. You require a second set of eyes, and you escalate when none is available. Third Umpire is that review gate for the decisions an autonomous loop makes, where a wrong high-materiality call is a mispriced position, a wrong risk number, a bad credit decision, or a bad merge to production. The independent check is cheap relative to the loss it prevents.
 
 There is a second, quieter saving. On a hard-correctness task, the literature says repeated self-refine passes will not reliably close the gap, and accuracy plateaus where extra passes stop buying anything (Wu et al., [arXiv:2408.00724](https://arxiv.org/abs/2408.00724)). The guard flags that pattern early and routes to an independent check instead of paying for self-critique that cannot help. The saving is the futile self-refine passes you stop running, not a blanket promise of fewer tokens.
 
@@ -64,7 +64,7 @@ python3 skills/third-umpire/examples/quickstart.py
 The test suite covers the full truth table. The quickstart runs a toy self-refine loop through five scenarios and prints what the umpire decided:
 
 ```text
-== Scenario A: reserve adequacy (hard-correctness, high-materiality), no checker wired ==
+== Scenario A: a credit-limit decision (hard-correctness, high-materiality), no checker wired ==
 self-refine stopped after 1 pass(es); 4 futile pass(es) avoided; independent check -> held-out backtest + validator sign-off
 
 == Scenario B: same decision, but no independent check is even available ==
