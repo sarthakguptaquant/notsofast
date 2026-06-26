@@ -26,14 +26,15 @@ may stand on its own.
   stands; the check is cheap relative to the loss.
 - *Reduced token waste on futile self-refinement:* refinement loops are a large share of agentic token
   spend (the review stage alone was 59.4 percent of tokens in one study, Salim et al., arXiv:2601.14470)
-  and accuracy plateaus where extra passes stop helping (Wu et al., arXiv:2408.00724). On a
+  and inference-scaling work finds a compute-optimal point past which extra passes stop being worth
+  their cost (Wu et al., arXiv:2408.00724). On a
   hard-correctness task, more self-refine passes will not close the gap, so the umpire stops them early
   and routes to an independent check instead of paying for self-critique that cannot help. The saving is
   the futile passes you stop running, not a blanket promise of fewer tokens.
 - *A clean audit trail:* the verdict is a deterministic function of tagged inputs, so it replays and is
   explainable.
 
-**Where it applies.** Finance and model risk, insurance, healthcare, legal and compliance, autonomous
+**Where it applies.** Finance and model risk, trading and markets, healthcare, legal and compliance, autonomous
 software-engineering agents, and enterprise operations and support: anywhere a loop makes a decision
 that is both checkable and costly to get wrong. Per-industry scenarios with verdicts are in
 [`skills/third-umpire/reference/USE-CASES.md`](skills/third-umpire/reference/USE-CASES.md). A runnable
@@ -130,7 +131,7 @@ A brand-aligned version is at [`publish/assets/flow-brand.svg`](publish/assets/f
 ## Case study
 
 The companion study measures the guard against a 2816-row synthetic conformance suite across finance,
-insurance, healthcare, and legal scenarios. Full methodology and results: [`skills/third-umpire/study/STUDY.md`](skills/third-umpire/study/STUDY.md).
+trading, healthcare, and legal scenarios. Full methodology and results: [`skills/third-umpire/study/STUDY.md`](skills/third-umpire/study/STUDY.md).
 
 ## Works with
 
@@ -140,6 +141,18 @@ insurance, healthcare, and legal scenarios. Full methodology and results: [`skil
 | Cursor, OpenAI Codex, other AGENTS.md-aware agents | clone the repo; the agent reads `AGENTS.md` |
 | Any agent that reads `SKILL.md` folders | `./install.sh` into its skills directory |
 | Any Python program | `pip install` the guard and call `review(...)` |
+
+## How this differs from related work
+
+Agent-safety tooling clusters in two well-populated layers. Third Umpire sits in a third.
+
+- **Action-policy layers** (AgentSpec, NVIDIA NeMo Guardrails, and similar) specify which actions an agent may execute and block the unsafe ones at runtime. They gate the action.
+- **Output-validation layers** (Guardrails AI, schema and policy validators) check whether a model's output is well-formed, on-policy, and free of known defects. They gate the output.
+- **Third Umpire gates the judgment.** It asks whether the verification step that approved a decision was structurally independent enough, given how hard and how costly the decision is. A self-only review on a hard-correctness, high-materiality call is unsound no matter how clean the output looks, a point grounded in Huang et al. (ICLR 2024, arXiv:2310.01798) and Denison et al. (arXiv:2406.10162). The three layers compose rather than overlap.
+
+In the self-correction literature, Reflexion (Shinn et al., NeurIPS 2023, arXiv:2303.11366) and Self-Refine (Madaan et al., NeurIPS 2023, arXiv:2303.17651) are the canonical single-model self-loops. Third Umpire does not improve them. It decides when running one counts as adequate verification, and routes to an independent check when it does not. They are the pattern the contract guards against in the hard-and-costly regime, not competitors.
+
+As of this writing, no published skill in the SKILL.md ecosystem conditions a runtime enforcement decision on the joint classification of task hardness and decision materiality. The closest existing skills cover code-quality gates, score-gated refinement loops, and loop-design coaching. That is a statement about what those tools do, checked against their own source, not a performance claim. No head-to-head accuracy or token benchmark is claimed; the bundled study is a seeded simulation, labeled as such.
 
 ## Layout
 

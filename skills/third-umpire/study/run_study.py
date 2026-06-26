@@ -9,7 +9,7 @@ money). So:
     total cost = tokens spent verifying + tokens lost to rework on wrong decisions
 
 Under that accounting, verification stops looking like a cost line and starts looking like
-what it is: the cheap insurance that avoids the expensive rework. This study quantifies
+what it is: the cheap hedge that avoids the expensive rework. This study quantifies
 that, honestly.
 
 WHAT THIS IS / IS NOT. A transparent, fully seeded model. It calls the real

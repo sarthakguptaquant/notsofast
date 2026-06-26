@@ -8,8 +8,8 @@ So the number that matters is:
 
 > total cost = tokens spent checking + tokens lost to rework on decisions that shipped wrong
 
-Read that way, a check stops looking like a cost line and starts looking like cheap
-insurance against an expensive mistake. This study puts numbers on it, honestly.
+Read that way, a check stops looking like a cost line and starts looking like a cheap
+hedge against an expensive mistake. This study puts numbers on it, honestly.
 
 ## How a decision gets routed (the plain-language version)
 
