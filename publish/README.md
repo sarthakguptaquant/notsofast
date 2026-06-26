@@ -1,17 +1,17 @@
-<img src="./assets/banner.svg" alt="Third Umpire: the independent review for an AI loop's high-stakes calls" width="100%" />
+<img src="./assets/banner.svg" alt="Not So Fast: the independent review for an AI loop's high-stakes calls" width="100%" />
 
 *When an agentic loop grades its own homework on a call that costs real money, one rule applies.*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-1B3DFF.svg)](./LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-1B3DFF.svg)](https://www.python.org/)
-[![Tests: 11 + 2816-row conformance](https://img.shields.io/badge/tests-11%20%2B%202816--row%20conformance-00B870.svg)](../skills/third-umpire/scripts/test_third_umpire.py)
+[![Tests: 11 + 2816-row conformance](https://img.shields.io/badge/tests-11%20%2B%202816--row%20conformance-00B870.svg)](../skills/notsofast/scripts/test_notsofast.py)
 [![Dependencies: none](https://img.shields.io/badge/dependencies-none-00B870.svg)](#)
 
 ## What it is
 
-Third Umpire is a verification-adequacy guard for agentic AI loops. The metaphor is cricket: when an on-field call is contested and consequential, you do not let it stand on the on-field umpire alone. You go to the third umpire, the independent official who reviews it with evidence the on-field umpire cannot trust by themselves.
+Not So Fast is a verification-adequacy guard for agentic AI loops. The idea is in the name: when a call is contested and consequential, not so fast. You do not let it stand on a single self-interested check. You bring in an independent reviewer who can see what the first pass cannot see in itself.
 
-For an AI loop, the "on-field umpire" is the model checking its own work. Third Umpire enforces one rule those self-checks do not enforce on themselves: a `self`-only verification mode may not be the sole gate on a `hard_correctness`, `high`-materiality decision. The loop must carry an independent check (cross-model, held-out, tool, or human) or it is escalated.
+For an AI loop, that single self-interested check is the model reviewing its own work. Not So Fast enforces one rule those self-checks do not enforce on themselves: a `self`-only verification mode may not be the sole gate on a `hard_correctness`, `high`-materiality decision. The loop must carry an independent check (cross-model, held-out, tool, or human) or it is escalated.
 
 It ships three ways from one source:
 
@@ -30,18 +30,18 @@ Two peer-reviewed results motivate the rule:
 1. Intrinsic self-correction is unreliable on hard-correctness tasks and can degrade accuracy when there is no external signal (Huang et al., ICLR 2024, [arXiv:2310.01798](https://arxiv.org/abs/2310.01798)). A model that produced a wrong answer tends to share the blind spot that produced it.
 2. A self-improving loop can learn to game its own critic, satisfying the critic without satisfying the goal (Denison et al., [arXiv:2406.10162](https://arxiv.org/abs/2406.10162)).
 
-Think of it the way an engineering org thinks about a risky merge. You do not let the author approve their own pull request on the code path that moves money. You require a second set of eyes, and you escalate when none is available. Third Umpire is that review gate for the decisions an autonomous loop makes, where a wrong high-materiality call is a mispriced position, a wrong risk number, a bad credit decision, or a bad merge to production. The independent check is cheap relative to the loss it prevents.
+Think of it the way an engineering org thinks about a risky merge. You do not let the author approve their own pull request on the code path that moves money. You require a second set of eyes, and you escalate when none is available. Not So Fast is that review gate for the decisions an autonomous loop makes, where a wrong high-materiality call is a mispriced position, a wrong risk number, a bad credit decision, or a bad merge to production. The independent check is cheap relative to the loss it prevents.
 
 There is a second, quieter saving. On a hard-correctness task, the literature says repeated self-refine passes will not reliably close the gap, and inference-scaling work finds a compute-optimal point past which extra passes stop being worth their cost (Wu et al., [arXiv:2408.00724](https://arxiv.org/abs/2408.00724)). The guard flags that pattern early and routes to an independent check instead of paying for self-critique that cannot help. The saving is the futile self-refine passes you stop running, not a blanket promise of fewer tokens.
 
-The honest counter-case: where a decision is genuinely soft (open-ended drafting, brainstorming, subjective quality) and low-materiality, self-critique is fine. The umpire stays out of the way. The value is concentrated on the hard-and-costly fraction, and the guard is built so the cheap-and-soft work is not slowed down.
+The honest counter-case: where a decision is genuinely soft (open-ended drafting, brainstorming, subjective quality) and low-materiality, self-critique is fine. The the guard stays out of the way. The value is concentrated on the hard-and-costly fraction, and the guard is built so the cheap-and-soft work is not slowed down.
 
 ## How to run it
 
 The guard is a dependency-free Python module. Standard library only.
 
 ```python
-from third_umpire import Decision, review, VerificationMode, TaskType, Materiality
+from notsofast import Decision, review, VerificationMode, TaskType, Materiality
 
 review(Decision(
     verification_mode=VerificationMode.SELF,
@@ -57,11 +57,11 @@ The verdict is one of `ALLOW`, `REQUIRE_INDEPENDENT_CHECK`, or `ESCALATE`. When 
 ### Verify it yourself
 
 ```bash
-python3 skills/third-umpire/scripts/test_third_umpire.py
-python3 skills/third-umpire/examples/quickstart.py
+python3 skills/notsofast/scripts/test_notsofast.py
+python3 skills/notsofast/examples/quickstart.py
 ```
 
-The test suite covers the full truth table. The quickstart runs a toy self-refine loop through five scenarios and prints what the umpire decided:
+The test suite covers the full truth table. The quickstart runs a toy self-refine loop through five scenarios and prints what the guard decided:
 
 ```text
 == Scenario A: a credit-limit decision (hard-correctness, high-materiality), no checker wired ==
@@ -73,7 +73,7 @@ self-refine stopped after 1 pass(es); escalated -> model-risk committee
 == Scenario C: same decision, independent check already wired in ==
 self-refine closed on self-critique after 1 pass(es) (call stands)
 
-== Scenario D: marketing copy (soft, low-materiality) -> umpire stays out of the way ==
+== Scenario D: marketing copy (soft, low-materiality) -> the guard stays out of the way ==
 self-refine closed on self-critique after 1 pass(es) (call stands)
 
 == Scenario E: unclassifiable decision -> conservative default (treated hard + high) ==
@@ -86,18 +86,18 @@ verdict=REQUIRE_INDEPENDENT_CHECK; mode=self, task=hard_correctness, materiality
 
 ```bash
 # Claude Code plugin
-/plugin marketplace add sarthakguptaquant/third-umpire
-/plugin install third-umpire@sarthak-skills
+/plugin marketplace add sarthakguptaquant/notsofast
+/plugin install notsofast@sarthak-skills
 
 # Skill folder for any agent that reads SKILL.md
-git clone https://github.com/sarthakguptaquant/third-umpire.git
-cd third-umpire && ./install.sh            # user scope: ~/.claude/skills
+git clone https://github.com/sarthakguptaquant/notsofast.git
+cd notsofast && ./install.sh            # user scope: ~/.claude/skills
 
 # Python guard, any environment
-pip install "git+https://github.com/sarthakguptaquant/third-umpire.git"
+pip install "git+https://github.com/sarthakguptaquant/notsofast.git"
 ```
 
-The full spec, the failure-mode survey, and the per-industry scenarios live in `skills/third-umpire/reference/`.
+The full spec, the failure-mode survey, and the per-industry scenarios live in `skills/notsofast/reference/`.
 
 ## What is claimed, and what is not
 

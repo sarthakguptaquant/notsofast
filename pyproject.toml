@@ -3,7 +3,7 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "third-umpire"
+name = "notsofast"
 version = "0.1.0"
 description = "A deterministic guard that refuses a self-only critic as the sole gate on a hard-correctness, high-materiality agentic-loop decision."
 readme = "README.md"
@@ -14,12 +14,12 @@ keywords = ["agent", "governance", "loop", "verification", "ai-safety", "llm"]
 dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/sarthakguptaquant/third-umpire"
-Repository = "https://github.com/sarthakguptaquant/third-umpire"
+Homepage = "https://github.com/sarthakguptaquant/notsofast"
+Repository = "https://github.com/sarthakguptaquant/notsofast"
 
 # The canonical guard lives in the skill so the skill is self-contained. Packaging it as a
 # top-level module means `pip install` exposes the same import the skill uses (`review`),
 # so the guard runs unchanged in any Python environment, not only inside Claude Code.
 [tool.setuptools]
-package-dir = { "" = "skills/third-umpire/scripts" }
-py-modules = ["third_umpire"]
+package-dir = { "" = "skills/notsofast/scripts" }
+py-modules = ["notsofast"]

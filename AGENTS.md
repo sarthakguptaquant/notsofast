@@ -1,7 +1,7 @@
-# AGENTS.md - third-umpire
+# AGENTS.md - notsofast
 
 This file lets any agent runtime that reads `AGENTS.md` (Codex, Cursor, and similar) pick up the
-same contract the Claude skill (`skills/third-umpire/SKILL.md`) encodes. The rule is
+same contract the Claude skill (`skills/notsofast/SKILL.md`) encodes. The rule is
 runtime-agnostic.
 
 ## The rule
@@ -21,15 +21,15 @@ acting on it:
 
 ## The guard
 
-`skills/third-umpire/scripts/third_umpire.py` is a dependency-free Python implementation.
+`skills/notsofast/scripts/notsofast.py` is a dependency-free Python implementation.
 In any Python environment:
 
 ```bash
-pip install "git+https://github.com/sarthakguptaquant/third-umpire.git"
+pip install "git+https://github.com/sarthakguptaquant/notsofast.git"
 ```
 
 ```python
-from third_umpire import Decision, review, VerificationMode, TaskType, Materiality
+from notsofast import Decision, review, VerificationMode, TaskType, Materiality
 
 review(Decision(VerificationMode.SELF, TaskType.HARD_CORRECTNESS, Materiality.HIGH,
                        has_independent_check=False))
@@ -40,5 +40,5 @@ review(Decision(VerificationMode.SELF, TaskType.HARD_CORRECTNESS, Materiality.HI
 
 This gates the epistemics of verification, not the action. It composes with action-policy layers
 (AgentSpec, the Microsoft Agent Control Specification), it does not replace them. Full spec and limits
-are in `skills/third-umpire/reference/CONTRACT.md`. No external service or MCP server is
+are in `skills/notsofast/reference/CONTRACT.md`. No external service or MCP server is
 required.

@@ -1,4 +1,4 @@
-# The Third Umpire Contract
+# The Not So Fast Contract
 
 This is the full specification behind the skill. It is condensed from a three-day failure-mode survey
 of agentic AI loops. The companion paper carries the citations and the does-it-already-exist analysis.
@@ -50,7 +50,7 @@ function review(decision):
     return ALLOW
 ```
 
-The reference implementation in `scripts/third_umpire.py` carries no model in its routing path, so
+The reference implementation in `scripts/notsofast.py` carries no model in its routing path, so
 it replays deterministically and is auditable.
 
 ## Why this is not the action-firewall

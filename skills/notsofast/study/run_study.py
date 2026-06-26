@@ -13,7 +13,7 @@ what it is: the cheap hedge that avoids the expensive rework. This study quantif
 that, honestly.
 
 WHAT THIS IS / IS NOT. A transparent, fully seeded model. It calls the real
-`third_umpire.review()` to do the routing, so the policy under test is the shipped guard.
+`notsofast.review()` to do the routing, so the policy under test is the shipped guard.
 Token costs and the rework cost are explicit constants. The accuracy dynamics are
 calibrated to one published finding, not measured from live model runs:
 
@@ -43,7 +43,7 @@ import random
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
-from third_umpire import Decision, review  # noqa: E402
+from notsofast import Decision, review  # noqa: E402
 
 SEED = 20260617
 
@@ -119,7 +119,7 @@ def hard_validate_all(d):
     return GEN + INDEP_CHECK, after_check(acc_self_refine("hard_correctness", 0))
 
 
-def hard_third_umpire(d):
+def hard_notsofast(d):
     """Route through the real guard. Skip futile refine on hard+low (reversible, cheap);
     check hard+high where the rule fires; escalate when no check can be added."""
     verdict = review(Decision("self", "hard_correctness", d["matl"], False, d["avail"]))
@@ -135,7 +135,7 @@ POLICIES = {
     "ship (no validation)": hard_ship,
     "naive self-refine (K=%d)" % K_REFINE: hard_refine_k,
     "validate everything": hard_validate_all,
-    "third-umpire (routed)": hard_third_umpire,
+    "notsofast (routed)": hard_notsofast,
 }
 
 
@@ -176,14 +176,14 @@ def main():
         print("%-26s %12d %12d %12d %10.3f" %
               (name, r["verify_tokens"], r["rework_tokens"], r["total_tokens"], r["acc_hard_high"]))
 
-    tu = results["third-umpire (routed)"]
+    tu = results["notsofast (routed)"]
     print("\nNet savings on the whole work structure (verify + rework), vs each status quo:")
     for name, r in results.items():
-        if name.startswith("third-umpire"):
+        if name.startswith("notsofast"):
             continue
         saved = r["total_tokens"] - tu["total_tokens"]
         pct = 100 * saved / r["total_tokens"]
-        print("  vs %-26s third-umpire spends %d fewer total tokens (%.0f%% less)."
+        print("  vs %-26s notsofast spends %d fewer total tokens (%.0f%% less)."
               % (name + ":", saved, pct))
 
     # Break-even: how cheap would rework have to be for "ship nothing" to beat the guard?
@@ -192,7 +192,7 @@ def main():
     for _ in range(40):
         mid = (lo + hi) / 2
         a = evaluate(pop, POLICIES[ship], rework=mid)["total_tokens"]
-        b = evaluate(pop, hard_third_umpire, rework=mid)["total_tokens"]
+        b = evaluate(pop, hard_notsofast, rework=mid)["total_tokens"]
         if a > b:
             hi = mid
         else:
@@ -205,7 +205,7 @@ def main():
                            if k.isupper() and isinstance(v, (int, float, dict))},
            "results": results,
            "disclaimer": "Transparent simulation calibrated to Huang et al. 2024; not a "
-                         "live-LLM benchmark. third_umpire.review() does the actual routing. "
+                         "live-LLM benchmark. notsofast.review() does the actual routing. "
                          "Soft tasks handled identically across policies to isolate the guard."}
     out["assumptions"]["POP_MIX"] = {str(k): v for k, v in POP_MIX.items()}
     with open(os.path.join(os.path.dirname(__file__), "study_results.json"), "w") as fh:
@@ -223,7 +223,7 @@ def make_charts(results):
 
     INK, BLUE, GREEN, CREAM = "#0F0E0B", "#1B3DFF", "#00B870", "#F4F1E8"
     names = list(results.keys())
-    short = ["ship\n(no check)", "naive\nself-refine", "validate\neverything", "third-umpire\n(routed)"]
+    short = ["ship\n(no check)", "naive\nself-refine", "validate\neverything", "notsofast\n(routed)"]
     verify = [results[n]["verify_tokens"] / 1e6 for n in names]
     rework = [results[n]["rework_tokens"] / 1e6 for n in names]
     totals = [results[n]["total_tokens"] / 1e6 for n in names]
@@ -235,7 +235,7 @@ def make_charts(results):
     bars_r = ax.bar(short, rework, bottom=verify, color=INK, alpha=0.78,
                     label="tokens lost to rework (wrong decisions that shipped)")
     # highlight the winner
-    idx = names.index("third-umpire (routed)")
+    idx = names.index("notsofast (routed)")
     bars_v[idx].set_color(GREEN)
     for i, t in enumerate(totals):
         ax.text(i, t + 0.05, "%.1fM" % t, ha="center", va="bottom",

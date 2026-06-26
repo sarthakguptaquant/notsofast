@@ -1,4 +1,4 @@
-# Use cases: where the third-umpire contract earns its place
+# Use cases: where the notsofast contract earns its place
 
 Each scenario names the loop, the decision it produces, the verification mode that closes it, the
 two-axis classification, and the verdict the guard returns. The pattern is always the same: a

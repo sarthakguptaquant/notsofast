@@ -4,9 +4,9 @@
   width="720"
   height="520"
   role="img"
-  aria-label="third-umpire decision flow: one input routed to ALLOW, REQUIRE_INDEPENDENT_CHECK, or ESCALATE"
+  aria-label="notsofast decision flow: one input routed to ALLOW, REQUIRE_INDEPENDENT_CHECK, or ESCALATE"
 >
-  <title>third-umpire: decision flow</title>
+  <title>notsofast: decision flow</title>
   <desc>Brand-aligned decision diagram. A decision enters the verification gate; the guard routes it to one of three verdicts: ALLOW (green), REQUIRE_INDEPENDENT_CHECK (blue), or ESCALATE (cream). Ink background, no gradients.</desc>
 
   <!-- Background -->
@@ -63,7 +63,7 @@
     font-family="'Geist', 'Inter', system-ui, sans-serif"
     font-size="11" font-weight="400" fill="#F4F1E8" opacity="0.75"
     text-anchor="middle"
-  >third-umpire.review(decision)</text>
+  >notsofast.review(decision)</text>
 
   <!-- ─────────────────────────────────────────────
        Arrow labels: YES / NO / ABSENT
@@ -221,7 +221,7 @@
     font-family="'JetBrains Mono', 'Courier New', Courier, monospace"
     font-size="9" font-weight="500" fill="#00B870"
     letter-spacing="0.07em" text-anchor="start"
-  >THIRD-UMPIRE</text>
+  >NOTSOFAST</text>
 
   <text x="680" y="508"
     font-family="'JetBrains Mono', 'Courier New', Courier, monospace"

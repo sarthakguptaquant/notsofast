@@ -1,11 +1,11 @@
-# Contributing to Third Umpire
+# Contributing to Not So Fast
 
 Thanks for considering a contribution. The project is deliberately small and opinionated, so a few
 ground rules keep it that way.
 
 ## Principles
 
-- **The guard stays dependency-free.** `third_umpire.py` uses the Python standard library only. No
+- **The guard stays dependency-free.** `notsofast.py` uses the Python standard library only. No
   third-party runtime dependencies. This is what lets the guard replay deterministically and run in any
   environment.
 - **The contract stays thin.** It enforces exactly one rule. Proposals to add a second enforced rule
@@ -20,7 +20,7 @@ ground rules keep it that way.
   verdict you expected versus what you got.
 - **Propose a task-type or materiality refinement:** the soft-versus-hard axis is the most contestable
   part. Bring a concrete decision example and the reasoning, ideally with a reference.
-- **Add a use case:** extend `skills/third-umpire/reference/USE-CASES.md` with a new industry scenario
+- **Add a use case:** extend `skills/notsofast/reference/USE-CASES.md` with a new industry scenario
   in the existing format (decision, verification mode, classification, verdict).
 
 ## Before you open a pull request
@@ -28,7 +28,7 @@ ground rules keep it that way.
 Run the suite and the example. Both must pass.
 
 ```bash
-cd skills/third-umpire/scripts && python test_third_umpire.py
+cd skills/notsofast/scripts && python test_notsofast.py
 cd ../examples && python quickstart.py
 ```
 

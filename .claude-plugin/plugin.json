@@ -1,12 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
-  "name": "third-umpire",
-  "displayName": "Third Umpire",
+  "name": "notsofast",
+  "displayName": "Not So Fast",
   "version": "0.1.0",
   "description": "A portable governance contract for agentic AI loops: refuse a self-only critic as the sole gate on a hard-correctness, high-materiality decision; require an independent check or escalate.",
   "author": { "name": "Sarthak Gupta" },
-  "repository": "https://github.com/sarthakguptaquant/third-umpire",
-  "homepage": "https://github.com/sarthakguptaquant/third-umpire",
+  "repository": "https://github.com/sarthakguptaquant/notsofast",
+  "homepage": "https://github.com/sarthakguptaquant/notsofast",
   "license": "MIT",
   "keywords": ["agent", "governance", "loop", "verification", "ai-safety"]
 }

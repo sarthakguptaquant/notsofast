@@ -28,7 +28,7 @@
       "ship (no validation)": "<function hard_ship at 0x1084af100>",
       "naive self-refine (K=4)": "<function hard_refine_k at 0x1084af1a0>",
       "validate everything": "<function hard_validate_all at 0x1084af240>",
-      "third-umpire (routed)": "<function hard_third_umpire at 0x1084af2e0>"
+      "notsofast (routed)": "<function hard_notsofast at 0x1084af2e0>"
     }
   },
   "results": {
@@ -53,7 +53,7 @@
       "acc_hard_high": 0.8200000000000001,
       "wrong_hard_high": 53.6
     },
-    "third-umpire (routed)": {
+    "notsofast (routed)": {
       "verify_tokens": 1580500,
       "rework_tokens": 418365,
       "total_tokens": 1998865,
@@ -61,5 +61,5 @@
       "wrong_hard_high": 46.5
     }
   },
-  "disclaimer": "Transparent simulation calibrated to Huang et al. 2024; not a live-LLM benchmark. third_umpire.review() does the actual routing. Soft tasks handled identically across policies to isolate the guard."
+  "disclaimer": "Transparent simulation calibrated to Huang et al. 2024; not a live-LLM benchmark. notsofast.review() does the actual routing. Soft tasks handled identically across policies to isolate the guard."
 }

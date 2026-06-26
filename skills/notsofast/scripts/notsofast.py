@@ -1,12 +1,11 @@
-"""Third Umpire: a deterministic, dependency-free verification-adequacy guard for agentic loops.
+"""Not So Fast: a deterministic, dependency-free verification-adequacy guard for agentic loops.
 
-The metaphor is cricket. When an on-field call is high-stakes and contested, you do not let it
-stand on the on-field umpire alone; you go to the third umpire, the independent official who reviews
-it with evidence the on-field umpire cannot trust by themselves. This guard is that third umpire for
-an AI loop: when a loop closes on the model's own self-critique (the on-field call) and the decision
-is hard-correctness and high-materiality (a contested, consequential call), the call may not stand on
-self-critique alone. It must carry an independent check (cross-model, held-out, tool, or human) or be
-escalated.
+The idea is in the name: not so fast. When a decision is high-stakes and contested, you do not let
+it stand on a single self-interested check. You bring in an independent reviewer who can catch what
+the first pass cannot see in itself. This guard is that brake for an AI loop: when a loop closes on
+the model's own self-critique and the decision is hard-correctness and high-materiality, the call may
+not stand on self-critique alone. It must carry an independent check (cross-model, held-out, tool, or
+human) or be escalated.
 
 Grounding (motivation, not proof of this guard):
   - Huang et al., "LLMs Cannot Self-Correct Reasoning Yet," ICLR 2024 (arXiv:2310.01798):
@@ -50,7 +49,7 @@ class Materiality:
     UNKNOWN = "unknown"
 
 
-# Verdicts (the third umpire's call)
+# Verdicts (the verdict)
 ALLOW = "ALLOW"
 REQUIRE_INDEPENDENT_CHECK = "REQUIRE_INDEPENDENT_CHECK"
 ESCALATE = "ESCALATE"
@@ -87,7 +86,7 @@ def _effective_materiality(materiality: str) -> str:
 
 
 def review(decision: Decision) -> str:
-    """The third umpire's call on a decision: ALLOW, REQUIRE_INDEPENDENT_CHECK, or ESCALATE.
+    """The verdict on a decision: ALLOW, REQUIRE_INDEPENDENT_CHECK, or ESCALATE.
 
     The rule fires only when the loop is closed by self-critique on a hard-correctness,
     high-materiality decision. In every other case the verdict is ALLOW: the contract is

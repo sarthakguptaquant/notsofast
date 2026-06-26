@@ -13,7 +13,7 @@ hedge against an expensive mistake. This study puts numbers on it, honestly.
 
 ## How a decision gets routed (the plain-language version)
 
-![How the third umpire routes a decision](flow.png)
+![How notsofast routes a decision](flow.png)
 
 The guard restricts exactly one path: a model that only checked its own work, on a hard
 right-or-wrong call, that is high-stakes. Everything else is allowed. When the rule does
@@ -21,7 +21,7 @@ fire, it asks for an independent check, or escalates to a human if none can be a
 
 ## What this is, and is not
 
-A transparent, fully seeded model. It calls the real `third_umpire.review()` to do the
+A transparent, fully seeded model. It calls the real `notsofast.review()` to do the
 routing, so the policy under test is the shipped guard. Token costs and the rework cost are
 explicit constants. The accuracy dynamics are calibrated to one published finding, not
 measured from live model runs:
@@ -47,18 +47,18 @@ A population of 1,000 loop decisions. Four ways to handle the hard ones:
 | ship, no validation | 1.40M | 1.21M | 2.61M | 0.55 |
 | naive self-refine (K=4) | 3.00M | 1.37M | 4.37M | 0.49 |
 | validate everything | 1.75M | 0.48M | 2.23M | 0.82 |
-| **third-umpire (routed)** | **1.58M** | **0.42M** | **2.00M** | **0.84** |
+| **notsofast (routed)** | **1.58M** | **0.42M** | **2.00M** | **0.84** |
 
 ![What the work actually costs](savings_bars.png)
 
-**third-umpire is the cheapest total, and the most accurate under these assumptions, at the
+**notsofast is the cheapest total, and the most accurate under these assumptions, at the
 same time.** Net savings on the whole work structure: **54% versus the naive self-refine loop,
 23% versus shipping with no check, 10% versus checking everything.** It beats validate-everything
 not by checking less carefully but by not paying for a check on low-stakes reversible decisions,
 while still catching the consequential ones and escalating the few it cannot check. That
 escalation is where its accuracy edge comes from, and it rests on one stated assumption: that a
 human reviewer catches more errors than an independent check (HUMAN_CATCH 0.90 above CHECK_CATCH
-0.60). If an independent check were as good as a human, validate-everything would match third-umpire
+0.60). If an independent check were as good as a human, validate-everything would match notsofast
 on accuracy while still losing on total cost. A seed-and-assumption sweep confirms the cost win
 holds in every regime where rework is expensive, and the accuracy win holds in every regime where
 the check is weaker than a human.

@@ -8,13 +8,13 @@
   "version": "0.1.0",
   "plugins": [
     {
-      "name": "third-umpire",
-      "displayName": "Third Umpire",
+      "name": "notsofast",
+      "displayName": "Not So Fast",
       "source": "./",
       "description": "Enforce that a self-only critic is not the sole gate on a hard-correctness, high-materiality agentic-loop decision.",
       "version": "0.1.0",
       "author": { "name": "Sarthak Gupta" },
-      "repository": "https://github.com/sarthakguptaquant/third-umpire",
+      "repository": "https://github.com/sarthakguptaquant/notsofast",
       "license": "MIT",
       "keywords": ["agent", "governance", "loop", "verification", "ai-safety"],
       "category": "governance"

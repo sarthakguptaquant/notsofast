@@ -1,22 +1,22 @@
-"""Rigorous, adversarial conformance test for the third-umpire guard.
+"""Rigorous, adversarial conformance test for the notsofast guard.
 
 This is an INDEPENDENT check, not a restatement of the implementation. The expected
 verdict is derived from the documented contract (the module and Decision docstrings),
 encoded here by hand, and compared against the live code across the full input cross
 product plus hostile inputs. If the code ever drifts from its own documentation, this
-fails. Standard library only; run with: python test_third_umpire_rigorous.py
+fails. Standard library only; run with: python test_notsofast_rigorous.py
 """
 
 from __future__ import annotations
 
 import itertools
 
-import third_umpire as tu
-from third_umpire import Decision
+import notsofast as tu
+from notsofast import Decision
 
 
 # --- Independent restatement of the documented contract -------------------------------
-# Derived from the docstrings in third_umpire.py, written WITHOUT looking at the branch
+# Derived from the docstrings in notsofast.py, written WITHOUT looking at the branch
 # order in review(). If this disagrees with the code, one of them is wrong.
 
 VALID_MODES = {"self", "peer", "tool", "human"}

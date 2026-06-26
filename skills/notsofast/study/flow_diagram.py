@@ -1,4 +1,4 @@
-"""Plain-language flow of the third-umpire decision, drawn for a non-technical reader.
+"""Plain-language flow of the notsofast decision, drawn for a non-technical reader.
 Renders flow.svg and flow.png from one matplotlib source (no libcairo needed)."""
 
 import matplotlib

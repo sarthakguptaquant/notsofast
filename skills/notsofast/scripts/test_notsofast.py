@@ -1,6 +1,6 @@
-"""Tests for the Third Umpire guard. Run: python test_third_umpire.py"""
+"""Tests for the Not So Fast guard. Run: python test_notsofast.py"""
 
-from third_umpire import (
+from notsofast import (
     Decision,
     review,
     VerificationMode,

@@ -1,5 +1,5 @@
 ---
-name: third-umpire
+name: notsofast
 description: >
   Use when designing, reviewing, or governing an agentic AI loop and you need to check that the
   loop's verification structure is adequate for the stakes. Enforces one rule: a self-only critic
@@ -9,11 +9,11 @@ description: >
   human-in-the-loop decisions, model risk, and "should this loop be allowed to check its own work".
 ---
 
-# Third Umpire
+# Not So Fast
 
-> The independent review for an AI loop's high-stakes calls. When a loop wants to close on the
-> model's own self-critique and the decision is costly and checkable, the call does not stand on the
-> on-field umpire alone. It goes to the third umpire.
+> The hand on the shoulder before an AI loop ships a high-stakes call it only checked itself. When a
+> loop wants to close on the model's own self-critique and the decision is costly and checkable, not
+> so fast: a self-only review does not stand alone. It gets an independent check, or it escalates.
 
 ## The problem it solves
 
@@ -34,7 +34,7 @@ Two failure modes drive this:
 
 The action-level guardrails that shipped in the last year (AgentSpec, the Microsoft Agent Control
 Specification, and similar) check whether an *action* is allowed. None of them checks whether the
-*judgment* that approved the action is allowed to stand on its own. That is the gap Third Umpire fills:
+*judgment* that approved the action is allowed to stand on its own. That is the gap Not So Fast fills:
 it enforces verification adequacy.
 
 ## What it saves you
@@ -50,7 +50,7 @@ it enforces verification adequacy.
   inference-scaling work finds a compute-optimal point past which extra passes stop being worth their
   cost (Wu et al., arXiv:2408.00724). On a
   hard-correctness task the literature says self-critique will not reliably close the gap, so repeated
-  self-refine passes burn tokens without improving the answer. Third Umpire flags that pattern early
+  self-refine passes burn tokens without improving the answer. Not So Fast flags that pattern early
   and routes to an independent check or escalation instead of paying for more self-critique that cannot
   help. The saving is the self-refine iterations you stop running, not a guarantee of fewer tokens
   overall.
@@ -58,7 +58,7 @@ it enforces verification adequacy.
   replays and is explainable, which is what an auditor or a risk function asks for.
 
 The honest counter-case: where a decision is genuinely soft (open-ended drafting, brainstorming,
-subjective quality) and low-materiality, self-critique is fine and Third Umpire leaves it alone. The
+subjective quality) and low-materiality, self-critique is fine and Not So Fast leaves it alone. The
 value is concentrated on the hard-and-costly fraction, and the skill is built so the cheap-and-soft
 work is not slowed down.
 
@@ -90,16 +90,16 @@ help.
 2. **Classify the decision:** task type `soft` versus `hard_correctness`; materiality `low` versus
    `high`. When you cannot confidently classify, default to `hard_correctness` and `high`. The safe
    move is to demand more verification, never to wave a decision through.
-3. **Send it to the umpire:** if the mode is `self` and the decision is `hard_correctness` and `high`,
+3. **Run the check:** if the mode is `self` and the decision is `hard_correctness` and `high`,
    the loop must have an independent check or it does not pass. The call is `ALLOW`,
    `REQUIRE_INDEPENDENT_CHECK`, or `ESCALATE`.
 
 ## How to use the bundled guard
 
-`scripts/third_umpire.py` is a dependency-free reference implementation:
+`scripts/notsofast.py` is a dependency-free reference implementation:
 
 ```python
-from third_umpire import Decision, review, VerificationMode, TaskType, Materiality
+from notsofast import Decision, review, VerificationMode, TaskType, Materiality
 
 verdict = review(Decision(
     verification_mode=VerificationMode.SELF,
@@ -110,7 +110,7 @@ verdict = review(Decision(
 # verdict == "REQUIRE_INDEPENDENT_CHECK"
 ```
 
-Run `python scripts/test_third_umpire.py` for the test suite, and
+Run `python scripts/test_notsofast.py` for the test suite, and
 `python examples/quickstart.py` for a worked self-refine-loop walkthrough.
 
 ## What this is not
