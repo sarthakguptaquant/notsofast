@@ -2,7 +2,6 @@
 
 *When an agentic loop grades its own homework on a call that costs real money, one rule applies.*
 
-[![CI](https://github.com/sarthakguptaquant/third-umpire/actions/workflows/ci.yml/badge.svg)](https://github.com/sarthakguptaquant/third-umpire/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-1B3DFF.svg)](LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-1B3DFF.svg)](https://www.python.org/)
 [![Tests: 11 + 2816-row conformance](https://img.shields.io/badge/tests-11%20%2B%202816--row%20conformance-00B870.svg)](skills/third-umpire/scripts/test_third_umpire.py)
@@ -160,7 +159,6 @@ As of this writing, no published skill in the SKILL.md ecosystem conditions a ru
 third-umpire/                                  repo root = plugin root = marketplace root
   .claude-plugin/marketplace.json              lets `/plugin marketplace add` discover the plugin
   .claude-plugin/plugin.json                   plugin manifest
-  .github/workflows/ci.yml                     runs the tests and example on every push
   skills/third-umpire/SKILL.md                 the skill (auto-discovered by Claude Code)
   skills/third-umpire/reference/CONTRACT.md    full spec and limits
   skills/third-umpire/reference/USE-CASES.md   per-industry scenarios with verdicts
