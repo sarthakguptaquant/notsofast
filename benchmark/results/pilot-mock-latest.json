@@ -1,0 +1,976 @@
+{
+  "run_id": "nsf-bench-mock-seed20260626",
+  "mode": "mock",
+  "seed": 20260626,
+  "dataset": {
+    "n_total": 48,
+    "n_governed": 46,
+    "n_controls": 2,
+    "n_governed_correct": 24,
+    "n_governed_wrong": 22,
+    "lanes": [
+      "code",
+      "fin"
+    ]
+  },
+  "constants": {
+    "NAIVE_REFINE_PASSES": 5,
+    "REFINE_PASS_TOKENS": 800
+  },
+  "metrics": {
+    "detection": {
+      "n_governed": 46,
+      "n_wrong_total": 22,
+      "self_passed_n": 37,
+      "self_passed_wrong_n": 18,
+      "independent_reviewed_in_danger_slice": 18,
+      "independent_caught_in_slice": 15,
+      "self_caught_in_slice": 0,
+      "detection_lift": 15,
+      "detection_lift_rate": 0.8333,
+      "correct_reviewed_by_independent": 24,
+      "independent_false_flags": 3,
+      "independent_false_positive_rate": 0.125
+    },
+    "token_ledger": {
+      "items_guard_fired": 46,
+      "tokens_saved_stopping_futile_passes": 147200,
+      "tokens_spent_on_independent_check": 32200,
+      "net_tokens": 115000,
+      "net_positive_items": 46,
+      "net_negative_items": 0,
+      "per_item": [
+        {
+          "item_id": "fin-parity-01",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-parity-02",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-parity-03",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-parity-04",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-var-01",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-var-02",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-var-03",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-var-04",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-amort-01",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-amort-02",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-amort-03",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-fv-01",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-fv-02",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-fv-03",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-fv-04",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-recon-01",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-recon-02",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-recon-03",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-recon-04",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-dim-01",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-dim-02",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-alloc-01",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-alloc-02",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-limit-01",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-limit-02",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-lgd-01",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-lgd-02",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-sharpe-01",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-sharpe-02",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-bond-01",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-bond-02",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-binsearch-01",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-binsearch-02",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-pct-01",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-pct-02",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-compound-01",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-compound-02",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-clamp-01",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-clamp-02",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-sql-01",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-sql-02",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-sql-03",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-fizz-01",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-fizz-02",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-mean-01",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-mean-02",
+          "saved": 3200,
+          "spent": 700,
+          "net": 2500,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        }
+      ]
+    },
+    "arm_accuracy": {
+      "no_check_accuracy": 0.5217,
+      "self_critic_accuracy": 0.5,
+      "independent_accuracy": 0.8261,
+      "independent_n_reviewed": 46
+    }
+  },
+  "records": [
+    {
+      "item_id": "fin-parity-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "fin-parity-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check caught a wrong answer"
+    },
+    {
+      "item_id": "fin-parity-03",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check FALSE-flagged a correct answer"
+    },
+    {
+      "item_id": "fin-parity-04",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check caught a wrong answer"
+    },
+    {
+      "item_id": "fin-var-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "fin-var-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review flagged",
+      "indep_note": "isolated check caught a wrong answer"
+    },
+    {
+      "item_id": "fin-var-03",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "fin-var-04",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check caught a wrong answer"
+    },
+    {
+      "item_id": "fin-amort-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check FALSE-flagged a correct answer"
+    },
+    {
+      "item_id": "fin-amort-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check caught a wrong answer"
+    },
+    {
+      "item_id": "fin-amort-03",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "fin-fv-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review flagged",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "fin-fv-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check caught a wrong answer"
+    },
+    {
+      "item_id": "fin-fv-03",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "fin-fv-04",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review flagged",
+      "indep_note": "isolated check missed a wrong answer"
+    },
+    {
+      "item_id": "fin-recon-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review flagged",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "fin-recon-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check caught a wrong answer"
+    },
+    {
+      "item_id": "fin-recon-03",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "fin-recon-04",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check caught a wrong answer"
+    },
+    {
+      "item_id": "fin-dim-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review flagged",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "fin-dim-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check caught a wrong answer"
+    },
+    {
+      "item_id": "fin-alloc-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "fin-alloc-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check missed a wrong answer"
+    },
+    {
+      "item_id": "fin-limit-01",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check caught a wrong answer"
+    },
+    {
+      "item_id": "fin-limit-02",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "fin-lgd-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check FALSE-flagged a correct answer"
+    },
+    {
+      "item_id": "fin-lgd-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review flagged",
+      "indep_note": "isolated check missed a wrong answer"
+    },
+    {
+      "item_id": "fin-sharpe-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "fin-sharpe-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check caught a wrong answer"
+    },
+    {
+      "item_id": "fin-bond-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review flagged",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "fin-bond-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check caught a wrong answer"
+    },
+    {
+      "item_id": "code-binsearch-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "code-binsearch-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check missed a wrong answer"
+    },
+    {
+      "item_id": "code-pct-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review flagged",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "code-pct-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check caught a wrong answer"
+    },
+    {
+      "item_id": "code-compound-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "code-compound-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check missed a wrong answer"
+    },
+    {
+      "item_id": "code-clamp-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "code-clamp-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check caught a wrong answer"
+    },
+    {
+      "item_id": "code-sql-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "code-sql-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review flagged",
+      "indep_note": "isolated check caught a wrong answer"
+    },
+    {
+      "item_id": "code-sql-03",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "code-fizz-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "code-fizz-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check caught a wrong answer"
+    },
+    {
+      "item_id": "code-mean-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": true,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check passed"
+    },
+    {
+      "item_id": "code-mean-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 800,
+      "indep_passed": false,
+      "indep_tokens": 700,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "self-review ratified",
+      "indep_note": "isolated check caught a wrong answer"
+    }
+  ],
+  "disclaimer": "MOCK MODE validates the harness mechanics end to end (dataset -> arms -> shipped guard -> metrics -> ledger). It does NOT establish the central claim: the mock independent arm's detection is a seeded, truth-correlated simulation, not a model re-deriving the answer. Run with --real and a wired model_call for the real result. The self-critic and no-check arms are honest in both modes.",
+  "note": "Stable committed pilot. run_id is timestamp-free so re-running does not churn git; metrics are deterministic per seed. Use --out for a stamped run."
+}
