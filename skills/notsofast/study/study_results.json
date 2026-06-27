@@ -25,10 +25,10 @@
     "N": 1000,
     "CHECK_AVAILABLE_RATE": 0.85,
     "POLICIES": {
-      "ship (no validation)": "<function hard_ship at 0x1084af100>",
-      "naive self-refine (K=4)": "<function hard_refine_k at 0x1084af1a0>",
-      "validate everything": "<function hard_validate_all at 0x1084af240>",
-      "notsofast (routed)": "<function hard_notsofast at 0x1084af2e0>"
+      "ship (no validation)": "<function hard_ship at 0x10521f430>",
+      "naive self-refine (K=4)": "<function hard_refine_k at 0x10521f4c0>",
+      "validate everything": "<function hard_validate_all at 0x10521f550>",
+      "notsofast (routed)": "<function hard_notsofast at 0x10521f5e0>"
     }
   },
   "results": {
@@ -36,28 +36,28 @@
       "verify_tokens": 1398400,
       "rework_tokens": 1206900,
       "total_tokens": 2605300,
-      "acc_hard_high": 0.55,
+      "acc_hard_high": 0.5500000000000009,
       "wrong_hard_high": 134.1
     },
     "naive self-refine (K=4)": {
       "verify_tokens": 3001600,
       "rework_tokens": 1367820,
       "total_tokens": 4369420,
-      "acc_hard_high": 0.49000000000000005,
+      "acc_hard_high": 0.48999999999999916,
       "wrong_hard_high": 152.0
     },
     "validate everything": {
       "verify_tokens": 1749100,
       "rework_tokens": 482760,
       "total_tokens": 2231860,
-      "acc_hard_high": 0.8200000000000001,
+      "acc_hard_high": 0.8199999999999951,
       "wrong_hard_high": 53.6
     },
     "notsofast (routed)": {
       "verify_tokens": 1580500,
       "rework_tokens": 418365,
       "total_tokens": 1998865,
-      "acc_hard_high": 0.844010067114094,
+      "acc_hard_high": 0.844010067114091,
       "wrong_hard_high": 46.5
     }
   },
