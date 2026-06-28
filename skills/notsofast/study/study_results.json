@@ -25,10 +25,10 @@
     "N": 1000,
     "CHECK_AVAILABLE_RATE": 0.85,
     "POLICIES": {
-      "ship (no validation)": "<function hard_ship at 0x10521f430>",
-      "naive self-refine (K=4)": "<function hard_refine_k at 0x10521f4c0>",
-      "validate everything": "<function hard_validate_all at 0x10521f550>",
-      "notsofast (routed)": "<function hard_notsofast at 0x10521f5e0>"
+      "ship (no validation)": "<function hard_ship at 0x1056cc430>",
+      "naive self-refine (K=4)": "<function hard_refine_k at 0x1056cc4c0>",
+      "validate everything": "<function hard_validate_all at 0x1056cc550>",
+      "notsofast (routed)": "<function hard_notsofast at 0x1056cc5e0>"
     }
   },
   "results": {
