@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-1B3DFF.svg)](./LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-1B3DFF.svg)](https://www.python.org/)
-[![Tests: 11 + 2816-row conformance](https://img.shields.io/badge/tests-11%20%2B%202816--row%20conformance-00B870.svg)](../skills/notsofast/scripts/test_notsofast.py)
+[![Tests: 11 + 2816-row conformance](https://img.shields.io/badge/tests-11%20%2B%202816--row%20conformance-00B870.svg)](../skills/notsofast/scripts/test_notsofast_rigorous.py)
 [![Dependencies: none](https://img.shields.io/badge/dependencies-none-00B870.svg)](#)
 
 ## What it is

@@ -24,12 +24,12 @@
     },
     "N": 1000,
     "CHECK_AVAILABLE_RATE": 0.85,
-    "POLICIES": {
-      "ship (no validation)": "<function hard_ship at 0x108207060>",
-      "naive self-refine (K=4)": "<function hard_refine_k at 0x108207100>",
-      "validate everything": "<function hard_validate_all at 0x1082071a0>",
-      "notsofast (routed)": "<function hard_notsofast at 0x108207240>"
-    }
+    "POLICIES": [
+      "ship (no validation)",
+      "naive self-refine (K=4)",
+      "validate everything",
+      "notsofast (routed)"
+    ]
   },
   "results": {
     "ship (no validation)": {

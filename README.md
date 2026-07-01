@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-1B3DFF.svg)](LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-1B3DFF.svg)](https://www.python.org/)
-[![Tests: 11 + 2816-row conformance](https://img.shields.io/badge/tests-11%20%2B%202816--row%20conformance-00B870.svg)](skills/notsofast/scripts/test_notsofast.py)
+[![Tests: 11 + 2816-row conformance](https://img.shields.io/badge/tests-11%20%2B%202816--row%20conformance-00B870.svg)](skills/notsofast/scripts/test_notsofast_rigorous.py)
 [![Dependencies: none](https://img.shields.io/badge/dependencies-none-00B870.svg)](#)
 
 ## Why this exists
@@ -163,7 +163,8 @@ notsofast/                                  repo root = plugin root = marketplac
   skills/notsofast/reference/CONTRACT.md    full spec and limits
   skills/notsofast/reference/USE-CASES.md   per-industry scenarios with verdicts
   skills/notsofast/scripts/notsofast.py  the deterministic guard
-  skills/notsofast/scripts/test_notsofast.py   the test suite
+  skills/notsofast/scripts/test_notsofast.py   the test suite (11 cases)
+  skills/notsofast/scripts/test_notsofast_rigorous.py  the 2816-row conformance suite
   skills/notsofast/examples/quickstart.py   runnable self-refine-loop walkthrough
   install.sh, pyproject.toml, AGENTS.md, CHANGELOG.md, CONTRIBUTING.md, SECURITY.md, README.md, LICENSE
 ```

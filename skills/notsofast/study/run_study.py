@@ -202,12 +202,16 @@ def main():
           "cheaper. Real rework cycles run far above this." % round((lo + hi) / 2))
 
     out = {"assumptions": {k: v for k, v in globals().items()
-                           if k.isupper() and isinstance(v, (int, float, dict))},
+                           if k.isupper() and k != "POLICIES"
+                           and isinstance(v, (int, float, dict))},
            "results": results,
            "disclaimer": "Transparent simulation calibrated to Huang et al. 2024; not a "
                          "live-LLM benchmark. notsofast.review() does the actual routing. "
                          "Soft tasks handled identically across policies to isolate the guard."}
     out["assumptions"]["POP_MIX"] = {str(k): v for k, v in POP_MIX.items()}
+    # Serialize POLICIES as its policy names, not repr'd function objects, so the
+    # committed JSON does not churn on non-deterministic memory addresses between runs.
+    out["assumptions"]["POLICIES"] = list(POLICIES.keys())
     with open(os.path.join(os.path.dirname(__file__), "study_results.json"), "w") as fh:
         json.dump(out, fh, indent=2, default=str)
     print("\nwrote study_results.json")

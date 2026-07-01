@@ -29,6 +29,7 @@ Run the suite and the example. Both must pass.
 
 ```bash
 cd skills/notsofast/scripts && python test_notsofast.py
+python test_notsofast_rigorous.py     # 2816-row conformance suite behind the tests badge
 cd ../examples && python quickstart.py
 ```
 
