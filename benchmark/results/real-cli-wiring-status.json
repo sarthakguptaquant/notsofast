@@ -1,0 +1,8 @@
+{
+  "wiring": "SUCCESS",
+  "model": "haiku",
+  "cap": 500,
+  "calls_made": 92,
+  "elapsed_s": 1102.7,
+  "results_path": "benchmark/results/nsf-bench-real-seed20260626-20260708T025434Z.json"
+}

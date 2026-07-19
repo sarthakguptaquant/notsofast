@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-1B3DFF.svg)](./LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-1B3DFF.svg)](https://www.python.org/)
-[![Tests: 11 + 2816-row conformance](https://img.shields.io/badge/tests-11%20%2B%202816--row%20conformance-00B870.svg)](../skills/notsofast/scripts/test_notsofast.py)
+[![Tests: 11 + 2816-row conformance](https://img.shields.io/badge/tests-11%20%2B%202816--row%20conformance-00B870.svg)](../skills/notsofast/scripts/test_notsofast_rigorous.py)
 [![Dependencies: none](https://img.shields.io/badge/dependencies-none-00B870.svg)](#)
 
 ## What it is
@@ -34,7 +34,7 @@ Think of it the way an engineering org thinks about a risky merge. You do not le
 
 There is a second, quieter saving. On a hard-correctness task, the literature says repeated self-refine passes will not reliably close the gap, and inference-scaling work finds a compute-optimal point past which extra passes stop being worth their cost (Wu et al., [arXiv:2408.00724](https://arxiv.org/abs/2408.00724)). The guard flags that pattern early and routes to an independent check instead of paying for self-critique that cannot help. The saving is the futile self-refine passes you stop running, not a blanket promise of fewer tokens.
 
-The honest counter-case: where a decision is genuinely soft (open-ended drafting, brainstorming, subjective quality) and low-materiality, self-critique is fine. The the guard stays out of the way. The value is concentrated on the hard-and-costly fraction, and the guard is built so the cheap-and-soft work is not slowed down.
+The honest counter-case: where a decision is genuinely soft (open-ended drafting, brainstorming, subjective quality) and low-materiality, self-critique is fine. The guard stays out of the way. The value is concentrated on the hard-and-costly fraction, and the guard is built so the cheap-and-soft work is not slowed down.
 
 ## How to run it
 
@@ -114,7 +114,10 @@ Not claimed, stated plainly because experts read this:
 - The novelty is the enforced, portable, task-and-materiality-aware contract and the verification-mode tag, not the observation that self-critique is weak (well documented) or the generator-critic pattern (buildable in any multi-agent framework).
 - It does not gate actions (use an action-policy layer for that), it does not prove a loop correct, and it does not produce a confidence number.
 
-The companion paper carries the citations, the does-it-already-exist analysis, and the full limitations section.
+The citations and the does-it-already-exist analysis are in the root [`README.md`](../README.md#how-this-differs-from-related-work)
+"How this differs from related work" section. The full limitations section is in
+[`CONTRACT.md`](../skills/notsofast/reference/CONTRACT.md#limits) under "Limits." There is no
+separate companion paper; it was removed from the repo and archived locally.
 
 ## License
 

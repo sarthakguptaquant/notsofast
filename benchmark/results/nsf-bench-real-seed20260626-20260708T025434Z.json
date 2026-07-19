@@ -1,0 +1,975 @@
+{
+  "run_id": "nsf-bench-real-seed20260626-20260708T025434Z",
+  "mode": "real",
+  "seed": 20260626,
+  "dataset": {
+    "n_total": 48,
+    "n_governed": 46,
+    "n_controls": 2,
+    "n_governed_correct": 24,
+    "n_governed_wrong": 22,
+    "lanes": [
+      "code",
+      "fin"
+    ]
+  },
+  "constants": {
+    "NAIVE_REFINE_PASSES": 5,
+    "REFINE_PASS_TOKENS": 800
+  },
+  "metrics": {
+    "detection": {
+      "n_governed": 46,
+      "n_wrong_total": 22,
+      "self_passed_n": 24,
+      "self_passed_wrong_n": 1,
+      "independent_reviewed_in_danger_slice": 1,
+      "independent_caught_in_slice": 1,
+      "self_caught_in_slice": 0,
+      "detection_lift": 1,
+      "detection_lift_rate": 1.0,
+      "correct_reviewed_by_independent": 24,
+      "independent_false_flags": 4,
+      "independent_false_positive_rate": 0.1667
+    },
+    "token_ledger": {
+      "items_guard_fired": 46,
+      "tokens_saved_stopping_futile_passes": 147200,
+      "tokens_spent_on_independent_check": 988840,
+      "net_tokens": -841640,
+      "net_positive_items": 0,
+      "net_negative_items": 46,
+      "per_item": [
+        {
+          "item_id": "fin-parity-01",
+          "saved": 3200,
+          "spent": 21147,
+          "net": -17947,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-parity-02",
+          "saved": 3200,
+          "spent": 21258,
+          "net": -18058,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-parity-03",
+          "saved": 3200,
+          "spent": 21439,
+          "net": -18239,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-parity-04",
+          "saved": 3200,
+          "spent": 21311,
+          "net": -18111,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-var-01",
+          "saved": 3200,
+          "spent": 22673,
+          "net": -19473,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-var-02",
+          "saved": 3200,
+          "spent": 21244,
+          "net": -18044,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-var-03",
+          "saved": 3200,
+          "spent": 21798,
+          "net": -18598,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-var-04",
+          "saved": 3200,
+          "spent": 22760,
+          "net": -19560,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-amort-01",
+          "saved": 3200,
+          "spent": 26828,
+          "net": -23628,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-amort-02",
+          "saved": 3200,
+          "spent": 21046,
+          "net": -17846,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-amort-03",
+          "saved": 3200,
+          "spent": 20827,
+          "net": -17627,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-fv-01",
+          "saved": 3200,
+          "spent": 21528,
+          "net": -18328,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-fv-02",
+          "saved": 3200,
+          "spent": 21335,
+          "net": -18135,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-fv-03",
+          "saved": 3200,
+          "spent": 21883,
+          "net": -18683,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-fv-04",
+          "saved": 3200,
+          "spent": 23417,
+          "net": -20217,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-recon-01",
+          "saved": 3200,
+          "spent": 20932,
+          "net": -17732,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-recon-02",
+          "saved": 3200,
+          "spent": 21254,
+          "net": -18054,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-recon-03",
+          "saved": 3200,
+          "spent": 20887,
+          "net": -17687,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-recon-04",
+          "saved": 3200,
+          "spent": 20963,
+          "net": -17763,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-dim-01",
+          "saved": 3200,
+          "spent": 21179,
+          "net": -17979,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-dim-02",
+          "saved": 3200,
+          "spent": 21152,
+          "net": -17952,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-alloc-01",
+          "saved": 3200,
+          "spent": 21005,
+          "net": -17805,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-alloc-02",
+          "saved": 3200,
+          "spent": 21401,
+          "net": -18201,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-limit-01",
+          "saved": 3200,
+          "spent": 21743,
+          "net": -18543,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-limit-02",
+          "saved": 3200,
+          "spent": 21626,
+          "net": -18426,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-lgd-01",
+          "saved": 3200,
+          "spent": 20855,
+          "net": -17655,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-lgd-02",
+          "saved": 3200,
+          "spent": 21420,
+          "net": -18220,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-sharpe-01",
+          "saved": 3200,
+          "spent": 20850,
+          "net": -17650,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-sharpe-02",
+          "saved": 3200,
+          "spent": 21001,
+          "net": -17801,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-bond-01",
+          "saved": 3200,
+          "spent": 21003,
+          "net": -17803,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "fin-bond-02",
+          "saved": 3200,
+          "spent": 21602,
+          "net": -18402,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-binsearch-01",
+          "saved": 3200,
+          "spent": 21965,
+          "net": -18765,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-binsearch-02",
+          "saved": 3200,
+          "spent": 21842,
+          "net": -18642,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-pct-01",
+          "saved": 3200,
+          "spent": 21059,
+          "net": -17859,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-pct-02",
+          "saved": 3200,
+          "spent": 21284,
+          "net": -18084,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-compound-01",
+          "saved": 3200,
+          "spent": 21068,
+          "net": -17868,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-compound-02",
+          "saved": 3200,
+          "spent": 21636,
+          "net": -18436,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-clamp-01",
+          "saved": 3200,
+          "spent": 21146,
+          "net": -17946,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-clamp-02",
+          "saved": 3200,
+          "spent": 21341,
+          "net": -18141,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-sql-01",
+          "saved": 3200,
+          "spent": 20991,
+          "net": -17791,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-sql-02",
+          "saved": 3200,
+          "spent": 20980,
+          "net": -17780,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-sql-03",
+          "saved": 3200,
+          "spent": 20870,
+          "net": -17670,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-fizz-01",
+          "saved": 3200,
+          "spent": 21380,
+          "net": -18180,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-fizz-02",
+          "saved": 3200,
+          "spent": 21379,
+          "net": -18179,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-mean-01",
+          "saved": 3200,
+          "spent": 21238,
+          "net": -18038,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        },
+        {
+          "item_id": "code-mean-02",
+          "saved": 3200,
+          "spent": 21294,
+          "net": -18094,
+          "guard_verdict": "REQUIRE_INDEPENDENT_CHECK"
+        }
+      ]
+    },
+    "arm_accuracy": {
+      "no_check_accuracy": 0.5217,
+      "self_critic_accuracy": 0.9565,
+      "independent_accuracy": 0.913,
+      "independent_n_reviewed": 46
+    }
+  },
+  "records": [
+    {
+      "item_id": "fin-parity-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 22260,
+      "indep_passed": true,
+      "indep_tokens": 21147,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS"
+    },
+    {
+      "item_id": "fin-parity-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21278,
+      "indep_passed": false,
+      "indep_tokens": 21258,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG\n\nYour reasoning explicitly identifies the error: you dropped the discount factor and used K instead of K e^{-rT} in",
+      "indep_note": "FLAG: Task references \"fin-parity-01\" which is not provided; cannot verify answer without the referenced problem context"
+    },
+    {
+      "item_id": "fin-parity-03",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 21554,
+      "indep_passed": true,
+      "indep_tokens": 21439,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS\n\nPut-Call Parity: C - P = S - K\u00b7e^(-rT)\n\nP = C - S + K\u00b7e^(-rT)\nP = 8.5 - 50 + 55\u00b7e^(-0.03\u00d70.5)\nP = 8.5 - 50 + 55\u00b7e^"
+    },
+    {
+      "item_id": "fin-parity-04",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 22414,
+      "indep_passed": false,
+      "indep_tokens": 21311,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG\n\nThe put-call parity formula is C - P = S - K\u00b7e^(-rT), so P = C - S + K\u00b7e^(-rT). With the given values, e^(-0.03\u00b70.",
+      "indep_note": "FLAG: Incorrect put-call parity calculation. Using P = C - S + Ke^(-rt): P = 8.5 - 50 + 55\u00d7e^(-0.03\u00d70.5) = 8.5 - 50 + 54"
+    },
+    {
+      "item_id": "fin-var-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 22262,
+      "indep_passed": true,
+      "indep_tokens": 22673,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS\n\nVerification of the calculation:\n\nFor two portfolios with VaRs V\u2081 and V\u2082 and correlation \u03c1, the aggregate VaR unde"
+    },
+    {
+      "item_id": "fin-var-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21265,
+      "indep_passed": false,
+      "indep_tokens": 21244,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG\n\nThe reasoning explicitly identifies the naive sum of 2.5M as incorrect and a common VaR aggregation error (valid o",
+      "indep_note": "FLAG - Cannot verify without access to the specific data and VaR calculations from fin-var-01."
+    },
+    {
+      "item_id": "fin-var-03",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 22295,
+      "indep_passed": true,
+      "indep_tokens": 21798,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS"
+    },
+    {
+      "item_id": "fin-var-04",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21718,
+      "indep_passed": false,
+      "indep_tokens": 22760,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG\n\nYour reasoning identifies the error: you used \u03c1 = 0 instead of the given \u03c1 = -0.5. The correct calculation is:\n\nVa",
+      "indep_note": "FLAG\n\nThe candidate appears to have ignored the correlation term. The correct formula for aggregate VaR with correlation"
+    },
+    {
+      "item_id": "fin-amort-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 22246,
+      "indep_passed": false,
+      "indep_tokens": 26828,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "Looking at this loan payment calculation:\n\nGiven:\n- Principal: $250,000\n- Annual rate: 6% \u2192 monthly rate i = 0.06/12 = 0"
+    },
+    {
+      "item_id": "fin-amort-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21178,
+      "indep_passed": false,
+      "indep_tokens": 21046,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG Used annual rate 0.06 instead of monthly rate 0.06/12 in the calculation.",
+      "indep_note": "FLAG: Cannot verify without details of the referenced loan (fin-amort-01) \u2014 principal, rate, term, and payment frequency"
+    },
+    {
+      "item_id": "fin-amort-03",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 20909,
+      "indep_passed": true,
+      "indep_tokens": 20827,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS"
+    },
+    {
+      "item_id": "fin-fv-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 21089,
+      "indep_passed": false,
+      "indep_tokens": 21528,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "FLAG: Incorrect rounding. The correct future value is 10,000 \u00d7 (1.07)^10 = 10,000 \u00d7 1.96715179... \u2248 19,671.52, not 19,67"
+    },
+    {
+      "item_id": "fin-fv-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21284,
+      "indep_passed": false,
+      "indep_tokens": 21335,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG\n\nThe answer of 17,000 uses simple interest, not compound interest. The compound interest formula is FV = P(1 + r)^t",
+      "indep_note": "FLAG Candidate used simple interest formula instead of compound interest. Correct formula is FV = 10,000(1.07)^10 \u2248 19,6"
+    },
+    {
+      "item_id": "fin-fv-03",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 27368,
+      "indep_passed": false,
+      "indep_tokens": 21883,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "I'll calculate the future value using the compound interest formula:\n\nFV = PV \u00d7 (1 + r)^n\n\nWhere:\n- PV = 5,000\n- r = 0.0"
+    },
+    {
+      "item_id": "fin-fv-04",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21865,
+      "indep_passed": false,
+      "indep_tokens": 23417,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG \u2014 Correct calculation uses 8 periods: FV = 5,000 \u00d7 (1.04)^8 \u2248 6,842.85. Your answer of 7,107.36 corresponds to 9 pe",
+      "indep_note": "FLAG\n\nThe correct future value is approximately 6,845.48, not 7,107.36. Using the compound interest formula FV = P(1+r)^"
+    },
+    {
+      "item_id": "fin-recon-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 20919,
+      "indep_passed": true,
+      "indep_tokens": 20932,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS"
+    },
+    {
+      "item_id": "fin-recon-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21434,
+      "indep_passed": false,
+      "indep_tokens": 21254,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG \u2013 Reasoning explicitly identifies a dropped -2,000 line as an error; if uncorrected, the answer should be 115,000.0",
+      "indep_note": "FLAG: Reference \"fin-recon-01\" not available for verification."
+    },
+    {
+      "item_id": "fin-recon-03",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 20921,
+      "indep_passed": true,
+      "indep_tokens": 20887,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS"
+    },
+    {
+      "item_id": "fin-recon-04",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21222,
+      "indep_passed": false,
+      "indep_tokens": 20963,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG\n\nThe correct sum is 9.0 (4.2 + 1.8 + 0.95 + 2.05 = 9.0), but the answer 8.95 is based on the error acknowledged in ",
+      "indep_note": "FLAG\n\nAdding the asset lines: 4.2 + 1.8 + 0.95 + 2.05 = 9.0 million, not 8.95 million."
+    },
+    {
+      "item_id": "fin-dim-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21505,
+      "indep_passed": false,
+      "indep_tokens": 21179,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG\n\nThe task specifies \"The arm reports a number and its unit\" \u2014 your answer provides only the unit label (annualized_",
+      "indep_note": "FLAG\n\nThe candidate provided only a variable name (\"annualized_volatility\"), not a number with a unit. The correct answe"
+    },
+    {
+      "item_id": "fin-dim-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21295,
+      "indep_passed": false,
+      "indep_tokens": 21152,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG\n\nAnswer reports daily volatility instead of annualized volatility as required by the task; the reasoning even confi",
+      "indep_note": "FLAG\n\nThe candidate answer \"daily_volatility\" is not a number with a unit. To annualize daily volatility of 0.012, multi"
+    },
+    {
+      "item_id": "fin-alloc-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 21046,
+      "indep_passed": true,
+      "indep_tokens": 21005,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS"
+    },
+    {
+      "item_id": "fin-alloc-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21034,
+      "indep_passed": false,
+      "indep_tokens": 21401,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG - A=45 breaches the A\u226440 constraint",
+      "indep_note": "FLAG: Cannot verify without the fin-alloc-01 problem statement and constraints."
+    },
+    {
+      "item_id": "fin-limit-01",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 21225,
+      "indep_passed": false,
+      "indep_tokens": 21743,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "FLAG: The answer reports the correct numerical values (exposure 53.0, limit 50.0) but does not answer the explicit yes/n"
+    },
+    {
+      "item_id": "fin-limit-02",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 21130,
+      "indep_passed": true,
+      "indep_tokens": 21626,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS"
+    },
+    {
+      "item_id": "fin-lgd-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 20915,
+      "indep_passed": true,
+      "indep_tokens": 20855,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS"
+    },
+    {
+      "item_id": "fin-lgd-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21439,
+      "indep_passed": false,
+      "indep_tokens": 21420,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG\n\nThe answer omits LGD from the calculation. The correct calculation is: 0.02 \u00d7 0.45 \u00d7 1,000,000 = 9,000, not 20,000",
+      "indep_note": "FLAG\n\nThe calculation should be: 0.02 \u00d7 0.45 \u00d7 1,000,000 = 9,000, not 20,000."
+    },
+    {
+      "item_id": "fin-sharpe-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 20950,
+      "indep_passed": true,
+      "indep_tokens": 20850,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS"
+    },
+    {
+      "item_id": "fin-sharpe-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21203,
+      "indep_passed": false,
+      "indep_tokens": 21001,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG\n\nThe reasoning correctly identifies the error (forgot to subtract risk-free rate), but the answer provided (0.75) i",
+      "indep_note": "FLAG\n\nThe Sharpe ratio formula is (Return - Risk-Free Rate) / Volatility = (12% - 2%) / 16% = 10% / 16% = 0.625, not 0.7"
+    },
+    {
+      "item_id": "fin-bond-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 21037,
+      "indep_passed": true,
+      "indep_tokens": 21003,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS"
+    },
+    {
+      "item_id": "fin-bond-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21382,
+      "indep_passed": false,
+      "indep_tokens": 21602,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG: Used simple interest formula instead of compound interest. Correct formula is PV = 1000/(1.04)^5 \u2248 821.93, not 833",
+      "indep_note": "FLAG The candidate used simple interest instead of compound interest. With annual compounding, the price should be 1,000"
+    },
+    {
+      "item_id": "code-binsearch-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 21201,
+      "indep_passed": true,
+      "indep_tokens": 21965,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS"
+    },
+    {
+      "item_id": "code-binsearch-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21890,
+      "indep_passed": false,
+      "indep_tokens": 21842,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG: The code uses `while lo < hi` which exits before checking the element at the final index. When lo == hi (converged",
+      "indep_note": "FLAG\n\nThe loop condition `while lo < hi` should be `while lo <= hi`. When the search narrows to a single element (lo == "
+    },
+    {
+      "item_id": "code-pct-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 21013,
+      "indep_passed": true,
+      "indep_tokens": 21059,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS"
+    },
+    {
+      "item_id": "code-pct-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21940,
+      "indep_passed": false,
+      "indep_tokens": 21284,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG Divides by new instead of old; pct_change(50,75) should return 50 not 33.3",
+      "indep_note": "FLAG\n\nPercentage change formula divides by old value, not new value. Should be: (new - old) / old * 100"
+    },
+    {
+      "item_id": "code-compound-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 21142,
+      "indep_passed": true,
+      "indep_tokens": 21068,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS"
+    },
+    {
+      "item_id": "code-compound-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21477,
+      "indep_passed": false,
+      "indep_tokens": 21636,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG\n\nThe implementation calculates simple interest (1200) instead of compound interest (1210). The task name \"code-comp",
+      "indep_note": "FLAG\n\nImplements simple interest formula (linear) instead of compound interest formula (exponential). Compound interest "
+    },
+    {
+      "item_id": "code-clamp-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 21233,
+      "indep_passed": true,
+      "indep_tokens": 21146,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS"
+    },
+    {
+      "item_id": "code-clamp-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21741,
+      "indep_passed": false,
+      "indep_tokens": 21341,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG lo and hi swapped in min/max nesting; correct form is `max(lo, min(x, hi))`",
+      "indep_note": "FLAG\n\nThe candidate has the clamp logic backwards. The correct implementation should be `max(lo, min(x, hi))`, not `min("
+    },
+    {
+      "item_id": "code-sql-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 20977,
+      "indep_passed": true,
+      "indep_tokens": 20991,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS"
+    },
+    {
+      "item_id": "code-sql-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21038,
+      "indep_passed": false,
+      "indep_tokens": 20980,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG - The reasoning correctly identifies the error: `amount > 100` excludes id 1 (amount exactly 100), but the spec req",
+      "indep_note": "FLAG\n\nThe condition uses `>` (strictly greater than) but the task specifies \"at least 100, so 100 is included,\" which re"
+    },
+    {
+      "item_id": "code-sql-03",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 21106,
+      "indep_passed": true,
+      "indep_tokens": 20870,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS"
+    },
+    {
+      "item_id": "code-fizz-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 21504,
+      "indep_passed": true,
+      "indep_tokens": 21380,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS"
+    },
+    {
+      "item_id": "code-fizz-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21470,
+      "indep_passed": false,
+      "indep_tokens": 21379,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG Checking n % 3 before n % 15 means 15 returns 'fizz', never reaches 'fizzbuzz'. The condition order is reversed.",
+      "indep_note": "FLAG - The divisibility check for 15 must come before checks for 3 and 5, otherwise multiples of 15 will incorrectly ret"
+    },
+    {
+      "item_id": "code-mean-01",
+      "correct": true,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": true,
+      "self_tokens": 20981,
+      "indep_passed": true,
+      "indep_tokens": 21238,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "PASS",
+      "indep_note": "PASS"
+    },
+    {
+      "item_id": "code-mean-02",
+      "correct": false,
+      "guard_verdict": "REQUIRE_INDEPENDENT_CHECK",
+      "self_passed": false,
+      "self_tokens": 21227,
+      "indep_passed": false,
+      "indep_tokens": 21294,
+      "refine_passes_avoided": 4,
+      "refine_pass_tokens": 800,
+      "self_note": "FLAG - The answer divides by (len(xs) - 1) instead of len(xs), producing incorrect means and causing ZeroDivisionError f",
+      "indep_note": "FLAG: Function divides by (len(xs) - 1) instead of len(xs), and doesn't compute a running mean (should return a sequence"
+    }
+  ],
+  "disclaimer": "REAL MODE: detection and tokens come from live model calls via the wired model_call. Numbers are a measured result for the model and dataset used."
+}

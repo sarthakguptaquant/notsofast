@@ -46,8 +46,8 @@ it enforces verification adequacy.
   such a decision stands. The check is cheap relative to the loss it prevents.
 - **Reduced token and cost waste on futile self-refinement.** Refinement loops are a major share of
   agentic token spend (the iterative review stage alone consumed 59.4 percent of tokens in one study
-  of agentic software engineering, Salim et al., arXiv:2601.14470), and inference-scaling work shows
-  inference-scaling work finds a compute-optimal point past which extra passes stop being worth their
+  of agentic software engineering, Salim et al., arXiv:2601.14470), and inference-scaling work finds a
+  compute-optimal point past which extra passes stop being worth their
   cost (Wu et al., arXiv:2408.00724). On a
   hard-correctness task the literature says self-critique will not reliably close the gap, so repeated
   self-refine passes burn tokens without improving the answer. Not So Fast flags that pattern early

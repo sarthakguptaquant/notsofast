@@ -59,9 +59,11 @@ while still catching the consequential ones and escalating the few it cannot che
 escalation is where its accuracy edge comes from, and it rests on one stated assumption: that a
 human reviewer catches more errors than an independent check (HUMAN_CATCH 0.90 above CHECK_CATCH
 0.60). If an independent check were as good as a human, validate-everything would match notsofast
-on accuracy while still losing on total cost. A seed-and-assumption sweep confirms the cost win
-holds in every regime where rework is expensive, and the accuracy win holds in every regime where
-the check is weaker than a human.
+on accuracy while still losing on total cost. This run uses one fixed seed (20260617); only the
+rework-cost constant was swept, in the break-even analysis below, and only within that one seed.
+The cost win holds in that swept range wherever rework is expensive, and the accuracy win holds
+wherever the check is weaker than a human, but neither claim has been re-run across multiple
+seeds or across the other model constants.
 
 ![Cheaper and more accurate](frontier.png)
 

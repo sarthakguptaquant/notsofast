@@ -5,3 +5,6 @@ dist/
 build/
 uv.lock
 .venv/
+
+# Serena tool cache
+.serena/

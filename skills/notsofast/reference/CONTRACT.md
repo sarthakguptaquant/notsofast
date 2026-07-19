@@ -1,7 +1,10 @@
 # The Not So Fast Contract
 
 This is the full specification behind the skill. It is condensed from a three-day failure-mode survey
-of agentic AI loops. The companion paper carries the citations and the does-it-already-exist analysis.
+of agentic AI loops. The citations and the does-it-already-exist analysis are in the root
+[`README.md`](../../../README.md#how-this-differs-from-related-work) "How this differs from related
+work" section. There is no separate companion paper; it was removed from the repo and archived
+locally.
 
 ## The problem, in one paragraph
 
